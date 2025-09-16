@@ -1,0 +1,54 @@
+.SearchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  position: sticky;
+}
+
+.SearchBox {
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 60%;
+  border-radius: 10px;
+  background-color: #f9fafb;
+  padding-left: 12px;
+}
+
+.SearchBox img {
+  width: 21px;
+  height: 20px;
+}
+
+.Line {
+  height: 1px;
+  background-color: hsl(0, 0%, 0%, 10%);
+  width: 100%;
+}
+
+.SearchBox input::placeholder {
+  color: #999999;
+}
+
+.SearchBox input {
+  background-color: #f9fafb;
+  font-size: 16px;
+  margin-left: 10px;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.SearchBox input:focus {
+  outline: none;
+}
+
+.EventsFound {
+  font-weight: 500;
+  font-size: 14px;
+  color: #6b7280;
+  position: absolute;
+  right: 25px;
+}

@@ -1,0 +1,186 @@
+.Main {
+  width: 85%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.Title,
+.SecondTitle {
+  margin-left: 40px;
+}
+
+.Title {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: #111827;
+}
+
+.SecondTitle {
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.Categories {
+  margin: 0px 40px 0px 40px;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.Categories button {
+  color: #374151;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 10px 15px 10px 15px;
+}
+
+.Categories button:hover {
+  cursor: pointer;
+  background-color: #f3f4f6;
+}
+
+.Events {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0 20px 20px;
+  padding: 20px 20px 10px 20px;
+  justify-content: center;
+  justify-content: space-around;
+  gap: 70px;
+  height: 80%;
+}
+
+.Event {
+  background-color: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 40%);
+  position: relative;
+}
+
+.EventTitle {
+  height: 40%;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.Tech {
+  background-color: #4318d1;
+}
+
+.Photo {
+  background-color: #059669;
+}
+
+.Sport {
+  background-color: #dc2626;
+}
+
+.Business {
+  background-color: #7c3aed;
+}
+
+.Like {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 25px;
+}
+
+.Info {
+  margin-top: 25px;
+  margin-left: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.Category {
+  margin-left: 10px;
+  color: white;
+  font-size: 14px;
+  padding: 5px 14px 5px 14px;
+  border-radius: 20px;
+}
+
+.TechnologyCategory {
+  background-color: #4318d1;
+}
+
+.SportsCategory {
+  background-color: #dc2626;
+}
+
+.BusinessCategory {
+  background-color: #7c3aed;
+}
+
+.PhotographyCategory {
+  background-color: #059669;
+}
+
+.Information {
+  margin: 20px 24px 0px 24px;
+}
+
+.Information h1 {
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.Information h3 {
+  margin-bottom: 15px;
+}
+
+.Information h3,
+h2 {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.Views {
+  position: absolute;
+  right: 24px;
+  color: #6b7280;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.JoinEvent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4318d1;
+  border-radius: 14px;
+  color: white;
+  font-size: 20px;
+  height: 60px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0px 24px 24px 24px;
+  position: absolute;
+  bottom: 10px;
+}

@@ -4,6 +4,7 @@ import { Routes, NavLink, Route } from "react-router";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Main from "./Components/Main/Main";
 import MeetUp from "./Components/Routes/MeetUp/MeetUp";
+import Error from "./Components/Error/Error";
 
 function App() {
   return (
@@ -15,12 +16,13 @@ function App() {
           <Routes>
             <Route path="/MeetUp/Discover"></Route>
             <Route path="/MeetUp/Dashboard"></Route>
+            <Route path="/MeetUp/MyMeetups"></Route>
+            <Route path="/MeetUp/Calendar"></Route>
+            <Route path="/MeetUp/Messages"></Route>
+            <Route path="/MeetUp/MyNetwork"></Route>
             <Route path="/" element={<MeetUp />} />
             <Route path="/MeetUp" element={<MeetUp />}></Route>
-            <Route
-              path="*"
-              element={<h1>Error 404: Route does not exist!</h1>}
-            />
+            <Route path="*" element={<Error />} />
           </Routes>
         </div>
       </div>

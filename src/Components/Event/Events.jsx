@@ -13,8 +13,12 @@ export default function Events() {
           </div>
           <div className="Information">
             <h1>Tech Networking Night</h1>
-            <h3>📅2024-01-15 at 7:00 PM</h3>
-            <h3>📍Downtown Tech Hub</h3>
+            <h3>
+              <span>📅</span>2024-01-15 at 7:00 PM
+            </h3>
+            <h3>
+              <span>📍</span>Downtown Tech Hub
+            </h3>
             <br />
             <h2>
               Join us for an evening of networking with fellow tech
@@ -37,8 +41,12 @@ export default function Events() {
           </div>
           <div className="Information">
             <h1>Photography Walk</h1>
-            <h3>📅2024-01-18 at 10:00 AM</h3>
-            <h3>📍Central Park</h3>
+            <h3>
+              <span>📅</span>2024-01-18 at 10:00 AM
+            </h3>
+            <h3>
+              <span>📍</span>Central Park
+            </h3>
             <br />
             <h2>
               Explore the city through your lens with fellow photography
@@ -62,8 +70,12 @@ export default function Events() {
           </div>
           <div className="Information">
             <h1>After-Work Soccer</h1>
-            <h3>📅2024-01-15 at 7:00 PM</h3>
-            <h3>📍Downtown Community Field</h3>
+            <h3>
+              <span>📅</span>2024-01-15 at 7:00 PM
+            </h3>
+            <h3>
+              <span>📍</span>Downtown Community Field
+            </h3>
             <br />
             <h2>
               Unwind after a long day with a casual game of 5v5 soccer followed
@@ -87,8 +99,12 @@ export default function Events() {
           </div>
           <div className="Information">
             <h1>Startup Pitch & Networking Night</h1>
-            <h3>📅2024-01-15 at 7:00 PM</h3>
-            <h3>📍Downtown Tech Hub</h3>
+            <h3>
+              <span>📅</span>2024-01-15 at 7:00 PM
+            </h3>
+            <h3>
+              <span>📍</span>Downtown Tech Hub
+            </h3>
             <br />
             <h2>
               Join entrepreneurs, investors, and professionals for a night of

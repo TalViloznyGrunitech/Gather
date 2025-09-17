@@ -1,10 +1,18 @@
 import "./Search.css";
 import SearchIcon from "./Icons/Search.png";
+import HamburgerMenuIcon from "./Icons/HamburgerMenu.png";
+import SiteLogo from "./Icons/SiteIcon.png";
 
 export default function Search() {
   return (
     <>
       <div className="SearchContainer">
+        <div className="MobileHeader Hidden">
+          <button className="MenuButton">
+            <img src={HamburgerMenuIcon}></img>
+          </button>
+          <img src={SiteLogo} className="LogoImage" alt="Site Logo" /> MeetUp
+        </div>
         <div className="SearchBox">
           <img src={SearchIcon}></img>
           <input

@@ -211,3 +211,9 @@
   color: #1a1a1a;
   font-weight: 500;
 }
+
+@media screen and (max-width: 500px) {
+  .Sidebar {
+    display: none;
+  }
+}

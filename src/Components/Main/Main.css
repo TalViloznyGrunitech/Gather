@@ -35,11 +35,17 @@
   background-color: #ffffff;
   border-radius: 20px;
   padding: 10px 15px 10px 15px;
+  display: flex;
+  align-items: center;
 }
 
 .Categories button:hover {
   cursor: pointer;
   background-color: #f3f4f6;
+}
+
+.Categories span {
+  margin-right: 5px;
 }
 
 .Events {
@@ -50,7 +56,6 @@
   justify-content: center;
   justify-content: space-around;
   gap: 70px;
-  height: 80%;
 }
 
 .Event {
@@ -62,7 +67,7 @@
 }
 
 .EventTitle {
-  height: 40%;
+  height: 250px;
   border-radius: 12px;
   font-weight: bold;
   font-size: 4rem;
@@ -101,6 +106,7 @@
   right: 20px;
   top: 20px;
   font-size: 25px;
+  cursor: pointer;
 }
 
 .Info {
@@ -135,7 +141,7 @@
 }
 
 .Information {
-  margin: 20px 24px 0px 24px;
+  margin: 20px 24px 120px 24px;
 }
 
 .Information h1 {
@@ -151,6 +157,10 @@
 h2 {
   color: #6b7280;
   font-weight: 400;
+}
+
+.Information h3 span {
+  margin-right: 10px;
 }
 
 .Views {
@@ -183,4 +193,80 @@ h2 {
   padding: 0px 24px 24px 24px;
   position: absolute;
   bottom: 10px;
+}
+
+.Categories .Active {
+  background-color: #4318d1;
+  color: white;
+  font-weight: 500;
+}
+
+.Categories .Active:hover {
+  background-color: #4318d1;
+}
+
+@media screen and (max-width: 500px) {
+  .Main {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .Events {
+    flex-direction: column;
+    margin: 0 0 0 0;
+    gap: 0;
+    padding: 0 20px 0 20px;
+  }
+
+  .Event {
+    margin-bottom: 25px;
+  }
+
+  .EventTitle {
+    font-size: 3rem;
+  }
+
+  .Categories {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    gap: 10px;
+    margin: 20px 0 30px 20px;
+  }
+
+  .Categories button {
+    display: inline-flex;
+    padding: 10px 20px 10px 20px;
+    font-size: 14px;
+  }
+
+  .Title {
+    font-size: 25px;
+    margin-left: 20px;
+  }
+
+  .SecondTitle {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .EventTitle {
+    height: 200px;
+  }
+
+  .Information h1 {
+    font-size: 20px;
+  }
+
+  .Information h3,
+  h4 {
+    font-size: 16px;
+  }
+
+  .Information h2 {
+    font-size: 16px;
+  }
+
+  .Categories .All {
+    white-space: nowrap;
+  }
 }

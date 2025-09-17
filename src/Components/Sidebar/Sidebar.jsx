@@ -2,6 +2,7 @@ import react from "react";
 import { useState } from "react";
 import "../../App.css";
 import "./Sidebar.css";
+import SiteLogo from "./Icons/SiteIcon.svg";
 import DashboardIcon from "./Icons/Dashboard.png";
 import SearchIcon from "./Icons/Discover.png";
 import MeetupsIcon from "./Icons/MyMeetups.png";
@@ -30,11 +31,7 @@ export default function Sidebar() {
     <>
       <div className="Sidebar">
         <div className="SiteLogo">
-          <img
-            src="/src/Components/SiteLogo/SiteIcon.svg"
-            className="LogoImage"
-            alt="Site Logo"
-          />
+          <img src={SiteLogo} className="LogoImage" alt="Site Logo" />
           <div className="SiteName">
             <h3>MeetUp</h3>
             <h4>Tap. Meet. Repeat.</h4>

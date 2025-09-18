@@ -139,7 +139,9 @@ export default function Sidebar() {
                 <h5>Username@gmail.com</h5>
               </div>
             </div>
-            <button className="ChangeUser">Change User</button>
+            <NavLink to={"/Gather/SignUp"}>
+              <button className="ChangeUser">Sign Up</button>
+            </NavLink>
           </div>
         </div>
       </div>

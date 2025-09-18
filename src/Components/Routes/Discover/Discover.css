@@ -205,6 +205,40 @@ h2 {
   background-color: #4318d1;
 }
 
+@media screen and (max-width: 1300px) {
+  .Main {
+    width: 80%;
+  }
+
+  .Categories {
+    width: 93%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .Categories span {
+    display: none;
+  }
+
+  .EventTitle {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Main {
+    width: 75%;
+  }
+
+  .Events {
+    gap: 20px;
+  }
+
+  .EventTitle {
+    font-size: 2.5rem;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .Main {
     width: 100%;

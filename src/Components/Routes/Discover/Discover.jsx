@@ -1,9 +1,9 @@
 import react from "react";
-import "./Main.css";
-import Search from "../Search/Search";
-import Events from "../Event/Events";
+import "./Discover.css";
+import Search from "../../Search/Search";
+import Events from "../../Event/Events";
 
-export default function Main() {
+export default function Discover() {
   function MakeActive(button) {
     const Buttons = document.querySelectorAll(".Categories button");
     Buttons.forEach((button) => {

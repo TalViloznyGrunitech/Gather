@@ -11,7 +11,7 @@ export default function Search() {
           <button className="MenuButton">
             <img src={HamburgerMenuIcon}></img>
           </button>
-          <img src={SiteLogo} className="LogoImage" alt="Site Logo" /> MeetUp
+          <img src={SiteLogo} className="LogoImage" alt="Site Logo" /> Gather
         </div>
         <div className="SearchBox">
           <img src={SearchIcon}></img>

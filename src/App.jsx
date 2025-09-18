@@ -1,10 +1,19 @@
 import { useState } from "react";
 import "./App.css";
-import { Routes, NavLink, Route } from "react-router";
+import { Routes, Route } from "react-router";
 import Sidebar from "./Components/Sidebar/Sidebar";
-import Main from "./Components/Main/Main";
-import MeetUp from "./Components/Routes/MeetUp/MeetUp";
-import Error from "./Components/Error/Error";
+import Gather from "./Components/Routes/Gather/Gather";
+import Error from "./Components/Routes/Error/Error";
+import Discover from "./Components/Routes/Discover/Discover";
+import Dashboard from "./Components/Routes/Dashboard/Dashboard";
+import MyMeetups from "./Components/Routes/MyMeetups/MyMeetups";
+import Calendar from "./Components/Routes/Calendar/Calendar";
+import Messages from "./Components/Routes/Messages/Messages";
+import MyNetwork from "./Components/Routes/MyNetwork/MyNetwork";
+import Hosting from "./Components/Routes/MyMeetups/Hosting";
+import PastEvents from "./Components/Routes/MyMeetups/PastEvents";
+import SavedEvents from "./Components/Routes/MyMeetups/SavedEvents";
+import UpcomingEvents from "./Components/Routes/MyMeetups/UpcomingEvents";
 
 function App() {
   return (
@@ -12,16 +21,31 @@ function App() {
       <div className="PageWrapper">
         <div className="Page">
           <Sidebar />
-          <Main />
           <Routes>
-            <Route path="/MeetUp/Discover"></Route>
-            <Route path="/MeetUp/Dashboard"></Route>
-            <Route path="/MeetUp/MyMeetups"></Route>
-            <Route path="/MeetUp/Calendar"></Route>
-            <Route path="/MeetUp/Messages"></Route>
-            <Route path="/MeetUp/MyNetwork"></Route>
-            <Route path="/" element={<MeetUp />} />
-            <Route path="/MeetUp" element={<MeetUp />}></Route>
+            <Route path="/Gather/Discover" element={<Discover />}></Route>
+            <Route path="/Gather/Dashboard" element={<Dashboard />}></Route>
+            <Route path="/Gather/MyMeetups" element={<MyMeetups />}></Route>
+            <Route path="/Gather/Calendar" element={<Calendar />}></Route>
+            <Route path="/Gather/Messages" element={<Messages />}></Route>
+            <Route path="/Gather/MyNetwork" element={<MyNetwork />}></Route>
+            <Route
+              path="/Gather/MyMeetups/Hosting"
+              element={<Hosting />}
+            ></Route>
+            <Route
+              path="/Gather/MyMeetups/PastEvents"
+              element={<PastEvents />}
+            ></Route>
+            <Route
+              path="/Gather/MyMeetups/SavedEvents"
+              element={<SavedEvents />}
+            ></Route>
+            <Route
+              path="/Gather/MyMeetups/UpcomingEvents"
+              element={<UpcomingEvents />}
+            ></Route>
+            <Route path="/" element={<Gather />} />
+            <Route path="/Gather" element={<Gather />}></Route>
             <Route path="*" element={<Error />} />
           </Routes>
         </div>

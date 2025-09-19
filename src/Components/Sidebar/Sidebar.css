@@ -1,0 +1,269 @@
+.Sidebar {
+  width: 15%;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.3);
+  padding: 35px 0 25px 0;
+  z-index: 7;
+  position: relative;
+}
+
+.LogoImage {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.SiteLogo {
+  margin-left: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.SiteName {
+  margin-left: 10px;
+}
+
+.SiteName h3 {
+  color: #1a1a1a;
+}
+
+.SiteName h4 {
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.Options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 25px;
+  margin: 25px 20px 25px 20px;
+  position: relative;
+}
+
+.Options a {
+  text-decoration: none;
+}
+
+.Options button {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: #495057;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.Options button img {
+  margin-right: 10px;
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+.Options .Active {
+  border-radius: 8px;
+  background-color: #4318d1;
+  width: 100%;
+  height: 45px;
+  color: #ffffff;
+  font-weight: 400;
+  box-shadow: 0 4px 6px -1px rgb(67 24 209 / 0.1),
+    0 2px 4px -2px rgb(67 24 209 / 0.1);
+}
+
+.Active {
+  display: flex;
+  justify-content: center;
+}
+
+.Options .Active img {
+  margin: 0 10px 0 0;
+}
+
+.Options .Active img {
+  filter: invert(100%);
+}
+
+.Active .Dropdown {
+  left: 10px;
+}
+
+.Options .Active .MessagesNumber {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  right: 15px;
+}
+
+button .Dropdown {
+  position: absolute;
+  right: 5px;
+}
+
+.Options button .Dropdown {
+  width: 16px;
+  height: 16px;
+}
+
+.SubMenu button {
+  color: #6c757d;
+  font-size: 13px;
+  margin-left: 40px;
+  font-weight: 400;
+  width: 100%;
+  position: relative;
+}
+
+.UpcomingNumber,
+.HostingNumber,
+.PastEventsNumber,
+.SavedEventsNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  right: 50px;
+}
+
+.UpcomingNumber {
+  background-color: #4318d1;
+}
+
+.HostingNumber {
+  background-color: #28a745;
+}
+.PastEventsNumber {
+  background-color: #dc3545;
+}
+
+.SavedEventsNumber {
+  background-color: #6c757d;
+}
+
+.MessagesNumber {
+  display: flex;
+  justify-content: center;
+  background-color: #dc3545;
+  align-items: center;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  right: 10px;
+}
+
+.UserContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.Messages.Active {
+  padding-left: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.User {
+  background-color: #f8f9fa;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  bottom: 10px;
+  border-radius: 8px;
+  padding: 16px 16px 16px 16px;
+}
+
+.UserImage {
+  background-color: #28a745;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.UserImage img {
+  width: 28px;
+  height: 28px;
+}
+
+.ChangeUser {
+  width: 100%;
+  background-color: #4318d1;
+  color: white;
+  height: 40px;
+  display: flex;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.NameAndSubscription {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.UserDetails h5 {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.UserDetails h4 {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1300px) {
+  .Sidebar {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .UserDetails h5 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .UserDetails h5 {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Sidebar {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Sidebar {
+    display: none;
+  }
+}

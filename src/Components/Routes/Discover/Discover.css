@@ -1,0 +1,290 @@
+/* ====== Layout & Headings ====== */
+.Main {
+  width: 85%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.Title,
+.SecondTitle {
+  margin-left: 40px;
+}
+
+.Title {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: #111827;
+}
+
+.SecondTitle {
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* ====== Categories (chips row) ====== */
+.Categories {
+  margin: 20px 40px 0 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.Categories button {
+  color: #374151;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 10px 15px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.Categories button:hover {
+  cursor: pointer;
+  background-color: #f3f4f6;
+}
+
+.Categories span {
+  margin-right: 5px;
+}
+
+.Categories .Active {
+  background-color: #4318d1;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.Categories .Active:hover {
+  background-color: #4318d1;
+}
+
+/* ====== Events: Horizontal scroller ====== */
+/* ====== Events: Horizontal scroller ====== */
+.Events {
+  display: flex;
+  flex-wrap: nowrap;               
+  justify-content: flex-start;
+  gap: 24px;
+  margin: 10px 0 20px 20px;
+  padding: 0 20px 20px;
+  overflow-x: auto;                
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;   /* snap feels nicer in Netflix style */
+  min-width: 0;
+}
+
+/* Netflix-style cards */
+.Event {
+  flex: 0 0 calc((100% - 2 * 24px) / 3);  
+  /* = 3 cards + gaps visible at once */
+  max-width: 470px;                /* optional cap */
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  position: relative;
+  scroll-snap-align: start;
+}
+
+
+.EventTitle {
+  height: 250px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+/* Title color variants */
+.Tech { background-color: #4318d1; }
+.Photo { background-color: #059669; }
+.Sport { background-color: #dc2626; }
+.Business { background-color: #7c3aed; }
+
+.Like {
+  background-color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.Info {
+  margin-top: 25px;
+  margin-left: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.Category {
+  margin-left: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.TechnologyCategory { background-color: #4318d1; }
+.SportsCategory     { background-color: #dc2626; }
+.BusinessCategory   { background-color: #7c3aed; }
+.PhotographyCategory{ background-color: #059669; }
+
+.Information {
+  margin: 20px 24px 120px 24px;
+}
+
+.Information h1 {
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.Information h3 { margin-bottom: 15px; }
+
+.Information h3,
+h2 {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.Information h3 span { margin-right: 10px; }
+
+.Views {
+  position: absolute;
+  right: 24px;
+  color: #6b7280;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.JoinEvent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4318d1;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 20px;
+  height: 60px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 24px 24px 24px;
+  position: absolute;
+  bottom: 10px;
+}
+
+/* ====== Breakpoints ====== */
+@media screen and (max-width: 1300px) {
+  .Main { width: 80%; }
+  .Categories { width: 93%; }
+}
+
+@media screen and (max-width: 1150px) {
+  .Categories span { display: none; }
+  .EventTitle { font-size: 3rem; }
+}
+
+@media screen and (max-width: 1000px) {
+  .Main { width: 75%; }
+  .Events { gap: 20px; }
+  .EventTitle { font-size: 2.5rem; }
+}
+
+@media screen and (max-width: 500px) {
+  .Main {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  /* Keep horizontal scroll on phones too */
+  .Events {
+    flex-direction: row;       /* not column */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    margin: 10px 0 0 0;
+    padding: 0 16px 16px;
+  }
+
+  .Event {
+    flex-basis: 300px;         /* slightly narrower cards on mobile */
+    margin-bottom: 0;
+  }
+
+  .EventTitle {
+  height: 250px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+.EventTitle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3); /* dark overlay for readability */
+  border-radius: 12px;
+}
+.EventTitle > * {
+  position: relative;
+  z-index: 1; /* text above overlay */
+}
+
+
+  .Categories {
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 10px;
+    margin: 20px 0 30px 20px;
+  }
+
+  .Categories button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .Title {
+    font-size: 25px;
+    margin-left: 20px;
+  }
+
+  .SecondTitle {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .Information h1 { font-size: 20px; }
+  .Information h3, h4 { font-size: 16px; }
+  .Information h2 { font-size: 16px; }
+
+  .Categories .All { white-space: nowrap; }
+}

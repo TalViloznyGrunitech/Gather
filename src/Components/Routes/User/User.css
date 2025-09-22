@@ -152,3 +152,10 @@
   font-size: 14px;
   cursor: pointer;
 }
+
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}

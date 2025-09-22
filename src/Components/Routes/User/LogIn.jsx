@@ -2,6 +2,16 @@ import SiteIcon from "./Icons/SiteIcon.svg";
 import { NavLink } from "react-router";
 
 export default function LogIn() {
+  function MakePasswordVisible(e) {
+    e.preventDefault();
+    const passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+
   return (
     <>
       <div className="Main">
@@ -22,8 +32,12 @@ export default function LogIn() {
               </div>
               <h4>Password</h4>
               <div className="Password">
-                <input placeholder="Enter your password"></input>
-                <button>
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="Enter your password"
+                ></input>
+                <button onClick={MakePasswordVisible}>
                   <span>👁️</span>
                 </button>
               </div>

@@ -62,6 +62,7 @@
 }
 
 .Options button img {
+  flex-shrink: 0;
   margin-right: 10px;
   margin-left: 15px;
   width: 20px;

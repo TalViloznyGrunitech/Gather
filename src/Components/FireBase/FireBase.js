@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "gather-61dd9.firebasestorage.app",
   messagingSenderId: "61675422992",
   appId: "1:61675422992:web:a4ace343ff0f3e5c441195",
-  measurementId: "G-970P5Q9LH6"
+  measurementId: "G-970P5Q9LH6",
 };
 
 // Initialize Firebase
@@ -22,5 +22,4 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-
-export { auth }; 
+export { auth };

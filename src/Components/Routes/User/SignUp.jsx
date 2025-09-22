@@ -6,23 +6,40 @@ import { auth } from "../../FireBase/FireBase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function SignUp() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const [email, setEmail] = useState(''); 
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null); 
+  function MakePasswordVisible(e) {
+    e.preventDefault();
+    const passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-      
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // User created successfully
+
       navigate("/Gather/Discover");
-
-
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         setError("This email is already registered.");
@@ -31,18 +48,8 @@ export default function SignUp() {
       } else {
         setError("Something went wrong. Please try again.");
       }
-
-      
     }
-
-  }
-
-
-
-
-
-
-
+  };
 
   return (
     <>
@@ -55,40 +62,48 @@ export default function SignUp() {
               <h3>Sign up to your Gather account</h3>
             </div>
             <form onSubmit={handleSubmit}>
-            <div className="EmailAndPassword">
-              <h4>Email Address</h4>
-              <div className="Email">
-                <input 
-                type="email"
-                id="email"
-                value={email}
-                placeholder="Enter your email"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                ></input>
-                <button>
-                  <span>📧</span>
-                </button>
+              <div className="EmailAndPassword">
+                <h4>Username</h4>
+                <div className="Username">
+                  <input type="text" placeholder="Enter your username"></input>
+                </div>
+                <h4>Email Address</h4>
+                <div className="Email">
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    placeholder="Enter your email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  ></input>
+                  <button>
+                    <span>📧</span>
+                  </button>
+                </div>
+                <h4>Password</h4>
+                <div className="Password">
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    placeholder="Enter your password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  ></input>
+                  <button
+                    className="ShowPassword"
+                    onClick={MakePasswordVisible}
+                  >
+                    <span>👁️</span>
+                  </button>
+                </div>
               </div>
-              <h4>Password</h4>
-              <div className="Password">
-                <input
-                type="password"
-                id="password"
-                value={password}
-                placeholder="Enter your password"
-                onChange={(e) => setPassword(e.target.value)}
-                required 
-                ></input>
-                <button>
-                  <span>👁️</span>
-                </button>
+              <div className="ErrorContainer">
+                {error && <p className="error">{error}</p>}
               </div>
-            </div>
-            {error && <p className="error">{error}</p>}
 
-
-            <button className="SignUpButton">🔐 Sign Up</button>
+              <button className="SignUpButton">🔐 Sign Up</button>
             </form>
             <div className="SignInOption">
               <h5>Already have an account?</h5>

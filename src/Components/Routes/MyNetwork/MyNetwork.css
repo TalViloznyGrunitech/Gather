@@ -1,0 +1,24 @@
+.HeaderOptions {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  margin-top: 30px;
+  gap: 40px;
+}
+
+.HeaderOptions button {
+  color: #6b7280;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.HeaderOptions button:hover {
+  color: #4318d1;
+}
+
+.LineContainer {
+  margin-top: 20px;
+  padding: 0 40px 0 40px;
+}

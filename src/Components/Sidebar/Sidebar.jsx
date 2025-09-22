@@ -19,16 +19,6 @@ export default function Sidebar() {
 
   const Location = useLocation();
 
-  function MakeButtonActive() {
-    // This function is not needed for conditional rendering with useLocation.
-    // Instead, you can use the location to set the "Active" class directly in the button's className.
-    // Example:
-    // <button className={`Dashboard${Location.pathname === "/Gather/Dashboard" ? " Active" : ""}`}>
-    //   ...
-    // </button>
-    // Repeat for other buttons with their respective paths.
-  }
-
   function ShowDiv() {
     SetShowMeetups(!ShowMeetups);
   }

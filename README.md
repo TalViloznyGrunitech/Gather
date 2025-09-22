@@ -1,6 +1,6 @@
-MeetupApp
+Gather
 
-MeetupApp is a modern, user-friendly platform to discover, join, and host real-world meetups across various interests—whether it's tech events, photo walks, fitness groups, or casual gatherings.
+Gather is a modern, user-friendly platform to discover, join, and host real-world meetups across various interests—whether it's tech events, photo walks, fitness groups, or casual gatherings.
 
 🌟 Features
 

@@ -1,5 +1,5 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
+import React, { useContext } from "react";
+import { useState, useEffect, useRef, createContext } from "react";
 import { NavLink } from "react-router";
 import "../../App.css";
 import "./Sidebar.css";
@@ -13,11 +13,17 @@ import NetworkIcon from "./Icons/MyNetwork.png";
 import DropdownIcon from "./Icons/DropdownArrow.png";
 import UserLogo from "./Icons/UserLogo.svg";
 import { useLocation } from "react-router";
+import { UserContext } from "../Routes/User/UserContext";
+
 
 export default function Sidebar() {
   const [ShowMeetups, SetShowMeetups] = useState(false);
 
   const Location = useLocation();
+
+  const { user } = useContext(UserContext); 
+ 
+
 
   function ShowDiv() {
     SetShowMeetups(!ShowMeetups);
@@ -127,8 +133,8 @@ export default function Sidebar() {
                 <img src={UserLogo}></img>
               </div>
               <div className="UserDetails">
-                <h4>Username</h4>
-                <h5>Username@gmail.com</h5>
+                <h4>{user?.displayName || "Guest"}</h4>
+                <h5>{user?.email || "user@example.com"}</h5>
               </div>
             </div>
             <NavLink to={"/Gather/SignUp"}>

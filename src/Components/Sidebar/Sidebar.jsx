@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useState, useEffect, useRef, createContext } from "react";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import "../../App.css";
 import "./Sidebar.css";
 import SiteLogo from "./Icons/SiteIcon.svg";
@@ -12,7 +12,7 @@ import MessagesIcon from "./Icons/Messages.png";
 import NetworkIcon from "./Icons/MyNetwork.png";
 import DropdownIcon from "./Icons/DropdownArrow.png";
 import UserLogo from "./Icons/UserLogo.png";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import { UserContext } from "../Routes/User/UserContext";
 
 

@@ -1,14 +1,59 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { UserContext } from "../User/UserContext";
 import { events } from "../../Event/Events";
 import "./EventProfile.css";
 
 export default function EventProfile() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user, addEvent, userEvents } = useContext(UserContext);
 
-  // Find the event by ID
   const event = events.find(e => e.id === id);
+  const [isJoining, setIsJoining] = useState(false);
+
+  const isEventJoined = userEvents.some(userEvent => userEvent.id === event?.id);
+
+  const handleJoinEvent = async () => {
+    if (!user) {
+      alert("Please sign in to join events.");
+      return;
+    }
+
+    if (isEventJoined) {
+      alert("You have already joined this event!");
+      return;
+    }
+
+    setIsJoining(true);
+    try {
+      const eventData = {
+        id: event.id,
+        title: event.title,
+        icon: event.icon,
+        category: event.category,
+        views: event.views,
+        name: event.name,
+        dateTimeLabel: event.dateTimeLabel,
+        location: event.location,
+        description: event.description,
+        titleClassName: event.titleClassName,
+        categoryClassName: event.categoryClassName,
+        imageUrl: event.imageUrl,
+      };
+
+      const result = await addEvent(eventData);
+      if (result.success) {
+        alert("Successfully joined the event! Check your upcoming events.");
+      } else {
+        alert("Error joining event: " + result.error);
+      }
+    } catch (error) {
+      alert("Error joining event: " + error.message);
+    } finally {
+      setIsJoining(false);
+    }
+  };
 
   if (!event) {
     return (
@@ -149,8 +194,12 @@ export default function EventProfile() {
           </div>
           
           <div className="action-section">
-            <button className="join-event-btn">
-              🔐 Join Event
+            <button 
+              className={`join-event-btn ${isEventJoined ? 'joined' : ''}`}
+              onClick={handleJoinEvent}
+              disabled={isJoining || isEventJoined}
+            >
+              {isJoining ? 'Joining...' : isEventJoined ? '✓ Joined' : '🔐 Join Event'}
             </button>
           </div>
         </div>

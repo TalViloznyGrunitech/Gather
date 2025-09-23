@@ -1,9 +1,10 @@
+import React from "react";
 import "./Search.css";
 import SearchIcon from "./Icons/Search.png";
 import HamburgerMenuIcon from "./Icons/HamburgerMenu.png";
 import SiteLogo from "./Icons/SiteIcon.png";
 
-export default function Search() {
+export default function Search({ onSearchChange, eventCount = 0 }) {
   return (
     <>
       <div className="SearchContainer">
@@ -18,9 +19,10 @@ export default function Search() {
           <input
             placeholder="Search meetups, locations, descriptions..."
             type="text"
-          ></input>
+            onChange={(e) => onSearchChange && onSearchChange(e.target.value)}
+          />
         </div>
-        <h2 className="EventsFound">0 events found</h2>
+        <h2 className="EventsFound">{eventCount} events found</h2>
       </div>
       <div className="Line"></div>
     </>

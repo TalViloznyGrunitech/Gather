@@ -14,6 +14,7 @@ export default function Event({
   titleClassName,
   categoryClassName,
   imageUrl,
+  onCategoryClick,
 }) {
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
@@ -22,6 +23,12 @@ export default function Event({
   const limit = 4;
   const isLong = words.length > limit;
   const preview = words.slice(0, limit).join(" ");
+
+  const handleCategoryClick = () => {
+    if (onCategoryClick) {
+      onCategoryClick(category);
+    }
+  };
 
   return (
     <div className="Event">
@@ -57,13 +64,19 @@ export default function Event({
       </div>
       <div className="Info">
         {icon}
-        <div className={`Category ${categoryClassName}`}>{category}</div>
-        <div className="Views">👥 {views}</div>
+        <div 
+          className={`Category ${categoryClassName}`}
+          onClick={handleCategoryClick}
+          style={{ cursor: "pointer" }}
+        >
+          {category}
+        </div>
+        <div className="Views">�� {views}</div>
       </div>
       <div className="Information">
         <h1>{name}</h1>
         <h3>
-          <span>📅</span>
+          <span>��</span>
           {dateTimeLabel}
         </h3>
         <h3>

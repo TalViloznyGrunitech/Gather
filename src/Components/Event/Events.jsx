@@ -1,5 +1,7 @@
 import React from "react";
 import Event from "./Event";
+import tech1Image from "../../assets/images/tech1.jpeg";
+import tech2Image from "../../assets/images/tech2.jpg";
 
 
 export const events = [
@@ -11,12 +13,12 @@ export const events = [
     views: 24,
     name: "Tech Networking Night",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Tech Hub",
+    location: "Tel Aviv Tech Hub",
     description:
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
-     imageUrl: "/images/tech2.jpg",
+     imageUrl: tech1Image,
   },
   {
     id: "tech-2",
@@ -26,11 +28,12 @@ export const events = [
     views: 24,
     name: "Tech Networking Night",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Tech Hub",
+    location: "Tel Aviv Tech Hub",
     description:
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
+    imageUrl: tech1Image,
   },
   {
     id: "tech-3",
@@ -40,11 +43,12 @@ export const events = [
     views: 24,
     name: "Tech Networking Night",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Tech Hub",
+    location: "Tel Aviv Tech Hub",
     description:
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
+    imageUrl: tech1Image,
   },
   {
     id: "tech-4",
@@ -54,11 +58,12 @@ export const events = [
     views: 24,
     name: "Tech Networking Night",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Tech Hub",
+    location: "Tel Aviv Tech Hub",
     description:
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
+    imageUrl: tech1Image,
   },
   {
     id: "tech-5",
@@ -68,11 +73,12 @@ export const events = [
     views: 24,
     name: "Tech Networking Night",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Tech Hub",
+    location: "Tel Aviv Tech Hub",
     description:
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
+    imageUrl: tech1Image,
   },
   {
     id: "photo-1",
@@ -82,7 +88,7 @@ export const events = [
     views: 5,
     name: "Photography Walk",
     dateTimeLabel: "2024-01-18 at 10:00 AM",
-    location: "Central Park",
+    location: "Haifa Central Park",
     description:
       "Explore the city through your lens with fellow photography enthusiasts. All skill levels welcome.",
     titleClassName: "Photo",
@@ -97,7 +103,7 @@ export const events = [
     views: 5,
     name: "Photography Walk",
     dateTimeLabel: "2024-01-18 at 10:00 AM",
-    location: "Central Park",
+    location: "Tel Aviv Beach",
     description:
       "Explore the city through your lens with fellow photography enthusiasts. All skill levels welcome.",
     titleClassName: "Photo",
@@ -112,7 +118,7 @@ export const events = [
     views: 5,
     name: "Photography Walk",
     dateTimeLabel: "2024-01-18 at 10:00 AM",
-    location: "Central Park",
+    location: "Jerusalem Old City",
     description:
       "Explore the city through your lens with fellow photography enthusiasts. All skill levels welcome.",
     titleClassName: "Photo",
@@ -126,7 +132,7 @@ export const events = [
     views: 5,
     name: "Photography Walk",
     dateTimeLabel: "2024-01-18 at 10:00 AM",
-    location: "Central Park",
+    location: "Haifa Central Park",
     description:
       "Explore the city through your lens with fellow photography enthusiasts. All skill levels welcome.",
     titleClassName: "Photo",
@@ -140,7 +146,7 @@ export const events = [
     views: 30,
     name: "After-Work Soccer",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Community Field",
+    location: "Jerusalem Community Field",
     description:
       "Unwind after a long day with a casual game of 5v5 soccer followed by refreshments. Open to all skill levels—just bring your sneakers and good vibes! Great for meeting new people who love to stay active.",
     titleClassName: "Sport",
@@ -154,7 +160,7 @@ export const events = [
     views: 30,
     name: "After-Work Soccer",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Community Field",
+    location: "Jerusalem Community Field",
     description:
       "Unwind after a long day with a casual game of 5v5 soccer followed by refreshments. Open to all skill levels—just bring your sneakers and good vibes! Great for meeting new people who love to stay active.",
     titleClassName: "Sport",
@@ -168,7 +174,7 @@ export const events = [
     views: 30,
     name: "After-Work Soccer",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Community Field",
+    location: "Jerusalem Community Field",
     description:
       "Unwind after a long day with a casual game of 5v5 soccer followed by refreshments. Open to all skill levels—just bring your sneakers and good vibes! Great for meeting new people who love to stay active.",
     titleClassName: "Sport",
@@ -182,7 +188,7 @@ export const events = [
     views: 12,
     name: "Startup Pitch & Networking Night",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Tech Hub",
+    location: "Tel Aviv Tech Hub",
     description:
       "Join entrepreneurs, investors, and professionals for a night of startup pitches, feedback sessions, and networking. Perfect for anyone building something new or looking to connect in the local startup scene.",
     titleClassName: "Business",
@@ -196,7 +202,7 @@ export const events = [
     views: 12,
     name: "Startup Pitch & Networking Night",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Tech Hub",
+    location: "Tel Aviv Tech Hub",
     description:
       "Join entrepreneurs, investors, and professionals for a night of startup pitches, feedback sessions, and networking. Perfect for anyone building something new or looking to connect in the local startup scene.",
     titleClassName: "Business",
@@ -210,7 +216,7 @@ export const events = [
     views: 12,
     name: "Startup Pitch & Networking Night",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Tech Hub",
+    location: "Tel Aviv Tech Hub",
     description:
       "Join entrepreneurs, investors, and professionals for a night of startup pitches, feedback sessions, and networking. Perfect for anyone building something new or looking to connect in the local startup scene.",
     titleClassName: "Business",
@@ -227,7 +233,7 @@ export const events = [
     views: 12,
     name: "Health Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Health Hub",
+    location: "North Health Center",
     description:
       "Join us for an evening of networking with fellow health professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Health",
@@ -241,7 +247,7 @@ export const events = [
     views: 12,
     name: "Health Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Health Hub",
+    location: "North Health Center",
     description:
       "Join us for an evening of networking with fellow health professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Health",
@@ -255,7 +261,7 @@ export const events = [
     views: 12,
     name: "Health Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Health Hub",
+    location: "North Health Center",
     description:
       "Join us for an evening of networking with fellow health professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Health",
@@ -269,7 +275,7 @@ export const events = [
     views: 12,
     name: "Music Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Music Hub",
+    location: "South Music Center",
     description:
       "Join us for an evening of networking with fellow music professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Music",
@@ -283,7 +289,7 @@ export const events = [
     views: 12,
     name: "Art Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Art Hub",
+    location: "Coastal Art Gallery",
     description:
       "Join us for an evening of networking with fellow art professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Art",
@@ -297,7 +303,7 @@ export const events = [
     views: 12,
     name: "Fun Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Fun Hub",
+    location: "Galilee Fun Center",
     description:
       "Join us for an evening of networking with fellow fun professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Fun",
@@ -311,7 +317,7 @@ export const events = [
     views: 12,
     name: "Fun Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Fun Hub",
+    location: "Galilee Fun Center",
     description:
       "Join us for an evening of networking with fellow fun professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Fun",
@@ -325,7 +331,7 @@ export const events = [
     views: 12,
     name: "Fun Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Fun Hub",
+    location: "Galilee Fun Center",
     description:
       "Join us for an evening of networking with fellow fun professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Fun",
@@ -339,7 +345,7 @@ export const events = [
     views: 12,
     name: "Night Life Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Night Life Hub",
+    location: "Negev Night Club",
     description:
       "Join us for an evening of networking with fellow night life professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Night Life",
@@ -353,7 +359,7 @@ export const events = [
     views: 12,
     name: "Night Life Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Night Life Hub",
+    location: "Negev Night Club",
     description:
       "Join us for an evening of networking with fellow night life professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Night Life",
@@ -367,7 +373,7 @@ export const events = [
     views: 12,
     name: "Night Life Event",
     dateTimeLabel: "2024-01-15 at 7:00 PM",
-    location: "Downtown Night Life Hub",
+    location: "Negev Night Club",
     description:
       "Join us for an evening of networking with fellow night life professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Night Life",

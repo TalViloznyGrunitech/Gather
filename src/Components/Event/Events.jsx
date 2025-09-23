@@ -1,7 +1,6 @@
 import React from "react";
 import Event from "./Event";
-import tech1Image from "../../assets/images/tech1.jpeg";
-import tech2Image from "../../assets/images/tech2.jpg";
+
 
 
 export const events = [
@@ -18,7 +17,6 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
-     imageUrl: tech1Image,
   },
   {
     id: "tech-2",
@@ -33,7 +31,7 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
-    imageUrl: tech1Image,
+ 
   },
   {
     id: "tech-3",
@@ -48,7 +46,7 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
-    imageUrl: tech1Image,
+    
   },
   {
     id: "tech-4",
@@ -63,7 +61,7 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
-    imageUrl: tech1Image,
+    
   },
   {
     id: "tech-5",
@@ -78,7 +76,7 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
-    imageUrl: tech1Image,
+   
   },
   {
     id: "photo-1",

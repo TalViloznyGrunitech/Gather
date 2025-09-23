@@ -3,7 +3,7 @@ import SiteIcon from "./Icons/SiteIcon.svg";
 import { NavLink, useNavigate } from "react-router";
 import { useState } from "react";
 import { auth } from "../../FireBase/FireBase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 export default function SignUp() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,6 +20,7 @@ export default function SignUp() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -37,7 +38,11 @@ export default function SignUp() {
         email,
         password
       );
-      // User created successfully
+
+       const user = userCredential.user;
+       await updateProfile(auth.currentUser, { displayName: username });
+       await auth.currentUser.reload();
+
 
       navigate("/Gather/Discover");
     } catch (error) {
@@ -65,7 +70,13 @@ export default function SignUp() {
               <div className="EmailAndPassword">
                 <h4>Username</h4>
                 <div className="Username">
-                  <input type="text" placeholder="Enter your username"></input>
+                  <input
+                  type="text"
+                  placeholder="Enter your username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  ></input>
                 </div>
                 <h4>Email Address</h4>
                 <div className="Email">

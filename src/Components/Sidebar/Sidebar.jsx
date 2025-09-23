@@ -11,7 +11,7 @@ import CalendarIcon from "./Icons/Calendar.png";
 import MessagesIcon from "./Icons/Messages.png";
 import NetworkIcon from "./Icons/MyNetwork.png";
 import DropdownIcon from "./Icons/DropdownArrow.png";
-import UserLogo from "./Icons/UserLogo.png";
+import UserLogo from "./Icons/UserLogo.svg";
 import { useLocation } from "react-router";
 
 export default function Sidebar() {
@@ -107,10 +107,12 @@ export default function Sidebar() {
               <div className="MessagesNumber">0</div>
             </button>
           </NavLink>
-          <NavLink to={"/Gather/MyNetwork"}>
+          <NavLink to={"/Gather/MyNetwork/MyConnections"}>
             <button
               className={`MyNetwork${
-                Location.pathname === "/Gather/MyNetwork" ? " Active" : ""
+                Location.pathname === "/Gather/MyNetwork/MyConnections"
+                  ? " Active"
+                  : ""
               }`}
             >
               <img src={NetworkIcon}></img>My Network

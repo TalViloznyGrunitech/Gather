@@ -1,0 +1,218 @@
+/* Event Component Styles */
+.Event {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Event:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.EventTitle {
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.EventTitle.Tech {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.EventTitle.Photography {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.EventTitle.Sports {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.EventTitle.Health {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.Like {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.Like:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.Info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.Category {
+  background: #4318d1;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Category:hover {
+  background: #3a15b8;
+}
+
+.Category.TechnologyCategory {
+  background: #667eea;
+}
+
+.Category.PhotographyCategory {
+  background: #f093fb;
+}
+
+.Category.SportsCategory {
+  background: #4facfe;
+}
+
+.Category.HealthCategory {
+  background: #43e97b;
+}
+
+.Views {
+  color: #666;
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.Information {
+  padding: 20px;
+}
+
+.Information h1 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 20px;
+}
+
+.Information h3 {
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Information h2 {
+  margin: 15px 0 0 0;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ButtonContainer {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.JoinEvent {
+  flex: 1;
+  background: #4318d1;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.JoinEvent:hover {
+  background: #3a15b8;
+}
+
+.AddEvent {
+  flex: 1;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.AddEvent:hover:not(:disabled) {
+  background: #218838;
+}
+
+.AddEvent:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.AddEvent.added {
+  background: #28a745;
+}
+
+.AddEvent.added:disabled {
+  background: #28a745;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .EventTitle {
+    padding: 15px;
+    font-size: 16px;
+    min-height: 50px;
+  }
+  
+  .Info {
+    padding: 12px 15px;
+    gap: 10px;
+  }
+  
+  .Information {
+    padding: 15px;
+  }
+  
+  .Information h1 {
+    font-size: 18px;
+  }
+  
+  .ButtonContainer {
+    padding: 15px;
+    flex-direction: column;
+  }
+  
+  .JoinEvent, .AddEvent {
+    width: 100%;
+  }
+}

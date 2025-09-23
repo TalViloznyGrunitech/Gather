@@ -5,7 +5,7 @@ import { events } from "../../Event/Events";
 import Event from "../../Event/Event";
 
 export default function Discover() {
-  const [selectedCategory, setSelectedCategory] = useState("Technology");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");

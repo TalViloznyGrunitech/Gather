@@ -13,6 +13,7 @@ import Hosting from "./Components/Routes/MyMeetups/Hosting";
 import PastEvents from "./Components/Routes/MyMeetups/PastEvents";
 import SavedEvents from "./Components/Routes/MyMeetups/SavedEvents";
 import UpcomingEvents from "./Components/Routes/MyMeetups/UpcomingEvents";
+import EventProfile from "./Components/Routes/EventProfile/EventProfile";
 import LogIn from "./Components/Routes/User/LogIn";
 import SignUp from "./Components/Routes/User/SignUp";
 
@@ -46,6 +47,10 @@ function App() {
             <Route
               path="/Gather/MyMeetups/UpcomingEvents"
               element={<UpcomingEvents />}
+            ></Route>
+            <Route
+              path="/Gather/Discover/event/:id"
+              element={<EventProfile />}
             ></Route>
             <Route path="/" element={<Discover />} />
             <Route path="/Gather" element={<Discover />}></Route>

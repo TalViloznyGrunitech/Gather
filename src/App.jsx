@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Error from "./Components/Routes/Error/Error";
 import Discover from "./Components/Routes/Discover/Discover";
-import Dashboard from "./Components/Routes/Dashboard/Dashboard";
 import MyEvents from "./Components/Routes/MyEvents/MyEvents";
 import Calendar from "./Components/Routes/Calendar/Calendar";
 import Messages from "./Components/Routes/Messages/Messages";
@@ -12,7 +11,6 @@ import MyNetwork from "./Components/Routes/MyNetwork/MyNetwork";
 import Hosting from "./Components/Routes/MyEvents/Hosting";
 import PastEvents from "./Components/Routes/MyEvents/PastEvents";
 import SavedEvents from "./Components/Routes/MyEvents/SavedEvents";
-import UpcomingEvents from "./Components/Routes/MyEvents/UpcomingEvents";
 import LogIn from "./Components/Routes/User/LogIn";
 import SignUp from "./Components/Routes/User/SignUp";
 import MyConnections from "./Components/Routes/MyNetwork/MyConnections";
@@ -28,7 +26,6 @@ function App() {
           <Sidebar />
           <Routes>
             <Route path="/Gather/Discover" element={<Discover />}></Route>
-            <Route path="/Gather/Dashboard" element={<Dashboard />}></Route>
             <Route path="/Gather/MyEvents" element={<MyEvents />}></Route>
             <Route path="/Gather/Calendar" element={<Calendar />}></Route>
             <Route path="/Gather/Messages" element={<Messages />}></Route>
@@ -65,10 +62,6 @@ function App() {
             <Route
               path="/Gather/MyEvents/SavedEvents"
               element={<SavedEvents />}
-            ></Route>
-            <Route
-              path="/Gather/MyEvents/UpcomingEvents"
-              element={<UpcomingEvents />}
             ></Route>
             <Route path="/" element={<Discover />} />
             <Route path="/Gather" element={<Discover />}></Route>

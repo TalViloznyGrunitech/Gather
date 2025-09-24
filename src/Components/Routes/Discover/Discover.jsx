@@ -12,7 +12,7 @@ export default function Discover() {
 
   const categories = [
     { name: "All Categories", icon: "🌟", value: "all" },
-    { name: "Technology", icon: "��", value: "Technology" },
+    { name: "Technology", icon: "🖥️", value: "Technology" },
     { name: "Business", icon: "💼", value: "Business" },
     { name: "Photography", icon: "📸", value: "Photography" },
     { name: "Literature", icon: "📚", value: "Literature" },
@@ -34,7 +34,7 @@ export default function Discover() {
     "Center",
     "Coastal",
     "Galilee",
-    "Negev"
+    "Negev",
   ];
 
   const handleSearchChange = (query) => {
@@ -44,31 +44,30 @@ export default function Discover() {
   const filteredEvents = useMemo(() => {
     let filtered = events;
 
-    // Filter by category
     if (selectedCategory !== "all") {
-      filtered = filtered.filter(event => event.category === selectedCategory);
-    }
-
-    // Filter by search query
-    if (searchQuery) {
-      filtered = filtered.filter(event => 
-        event.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        event.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        event.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        event.category.toLowerCase().includes(searchQuery.toLowerCase())
+      filtered = filtered.filter(
+        (event) => event.category === selectedCategory
       );
     }
 
-    // Filter by date
+    if (searchQuery) {
+      filtered = filtered.filter(
+        (event) =>
+          event.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          event.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          event.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          event.category.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
     if (selectedDate) {
-      filtered = filtered.filter(event => 
+      filtered = filtered.filter((event) =>
         event.dateTimeLabel.includes(selectedDate)
       );
     }
 
-    // Filter by region
     if (selectedRegion && selectedRegion !== "All Regions") {
-      filtered = filtered.filter(event => 
+      filtered = filtered.filter((event) =>
         event.location.toLowerCase().includes(selectedRegion.toLowerCase())
       );
     }
@@ -84,11 +83,9 @@ export default function Discover() {
     setSelectedCategory(category);
   };
 
-
-  // Group filtered events by category for display
   const eventsByCategory = useMemo(() => {
     const grouped = {};
-    filteredEvents.forEach(event => {
+    filteredEvents.forEach((event) => {
       if (!grouped[event.category]) {
         grouped[event.category] = [];
       }
@@ -100,7 +97,7 @@ export default function Discover() {
   return (
     <>
       <div className="Main">
-        <Search 
+        <Search
           onSearchChange={handleSearchChange}
           eventCount={filteredEvents.length}
         />
@@ -108,8 +105,9 @@ export default function Discover() {
         <h2 className="SecondTitle">
           Find and join amazing events in your area
         </h2>
-        
-        {/* Filter Controls */}
+        <h2 className="MobileEventsFound FoundEventsHidden">
+          {filteredEvents.length} events found
+        </h2>
         <div className="FilterControls">
           <div className="FilterRow">
             <div className="FilterGroup">
@@ -121,7 +119,7 @@ export default function Discover() {
                 className="FilterInput"
               />
             </div>
-            
+
             <div className="FilterGroup">
               <label>Region:</label>
               <select
@@ -130,19 +128,21 @@ export default function Discover() {
                 className="FilterSelect"
               >
                 <option value="">All Regions</option>
-                {regions.slice(1).map(region => (
-                  <option key={region} value={region}>{region}</option>
+                {regions.slice(1).map((region) => (
+                  <option key={region} value={region}>
+                    {region}
+                  </option>
                 ))}
               </select>
             </div>
-            
-            <button 
-              className="ClearFilters" 
+
+            <button
+              className="ClearFilters"
               onClick={() => {
                 setSelectedDate("");
                 setSelectedRegion("");
                 setSearchQuery("");
-                const searchInput = document.querySelector('.SearchBox input');
+                const searchInput = document.querySelector(".SearchBox input");
                 if (searchInput) searchInput.value = "";
               }}
             >
@@ -150,10 +150,10 @@ export default function Discover() {
             </button>
           </div>
         </div>
-        
+
         <div className="Categories">
           {categories.map((category) => (
-            <button 
+            <button
               key={category.value}
               className={selectedCategory === category.value ? "Active" : ""}
               onClick={() => handleCategoryClick(category.value)}
@@ -163,16 +163,15 @@ export default function Discover() {
           ))}
         </div>
 
-        {/* Show filtered results */}
         {Object.keys(eventsByCategory).length > 0 ? (
           Object.entries(eventsByCategory).map(([category, categoryEvents]) => (
-            <div key={category} style={{ margin: "30px 20px 0 20px" }}>
+            <div key={category}>
               <h1 className="Title">{category}</h1>
               <div className="Events">
                 {categoryEvents.map((event) => (
-                  <Event 
-                    key={event.id} 
-                    {...event} 
+                  <Event
+                    key={event.id}
+                    {...event}
                     onCategoryClick={handleCategoryClickFromEvent}
                   />
                 ))}
@@ -180,9 +179,9 @@ export default function Discover() {
             </div>
           ))
         ) : (
-          <div style={{ margin: "30px 20px", textAlign: "center" }}>
-            <h2 style={{ color: "#6b7280" }}>No events found matching your criteria</h2>
-            <p style={{ color: "#9ca3af" }}>Try adjusting your search filters</p>
+          <div className="NoEvent">
+            <h2>No events found matching your criteria</h2>
+            <p>Try adjusting your search filters</p>
           </div>
         )}
       </div>

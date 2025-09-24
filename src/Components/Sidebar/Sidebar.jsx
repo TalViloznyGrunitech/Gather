@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useState, useEffect, useRef, createContext } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import "../../App.css";
 import "./Sidebar.css";
 import SiteLogo from "./Icons/SiteIcon.svg";
@@ -14,20 +14,29 @@ import DropdownIcon from "./Icons/DropdownArrow.png";
 import UserLogo from "./Icons/UserLogo.svg";
 import { useLocation } from "react-router";
 import { UserContext } from "../Routes/User/UserContext";
-
+import { auth } from "../FireBase/FireBase";
+import { signOut } from "firebase/auth";
 
 export default function Sidebar() {
   const [ShowMeetups, SetShowMeetups] = useState(false);
 
   const Location = useLocation();
+  const navigate = useNavigate();
 
-  const { user } = useContext(UserContext); 
- 
-
+  const { user, joinedEvents } = useContext(UserContext);
 
   function ShowDiv() {
     SetShowMeetups(!ShowMeetups);
   }
+
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      navigate("/Gather/Discover");
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
 
   return (
     <>
@@ -59,35 +68,41 @@ export default function Sidebar() {
               <img src={SearchIcon}></img>Discover Meetups
             </button>
           </NavLink>
-          <NavLink to={"/Gather/MyMeetups"}>
+          <NavLink to={"/Gather/MyEvents"}>
             <button
-              className={`MyMeetups${
-                Location.pathname === "/Gather/MyMeetups" ? " Active" : ""
+              className={`MyEvents${
+                Location.pathname === "/Gather/MyEvents" ? " Active" : ""
               }`}
               onClick={ShowDiv}
             >
-              <img src={MeetupsIcon}></img>My Meetups
+              <img src={MeetupsIcon}></img>
+              My Events
+              {user && joinedEvents.length > 0 && (
+                <div className="MyEventsNumber" key={joinedEvents.length}>
+                  {joinedEvents.length}
+                </div>
+              )}
               <img className="Dropdown" src={DropdownIcon}></img>
             </button>
           </NavLink>
           {ShowMeetups && (
             <div className="SubMenu">
-              <NavLink to={"/Gather/MyMeetups/UpcomingEvents"}>
+              <NavLink to={"/Gather/MyEvents/UpcomingEvents"}>
                 <button>
                   Upcoming Events<div className="UpcomingNumber">0</div>
                 </button>
               </NavLink>
-              <NavLink to={"/Gather/MyMeetups/Hosting"}>
+              <NavLink to={"/Gather/MyEvents/Hosting"}>
                 <button>
                   Hosting<div className="HostingNumber">0</div>
                 </button>
               </NavLink>
-              <NavLink to={"/Gather/MyMeetups/PastEvents"}>
+              <NavLink to={"/Gather/MyEvents/PastEvents"}>
                 <button>
                   Past Events<div className="PastEventsNumber">0</div>
                 </button>
               </NavLink>
-              <NavLink to={"/Gather/MyMeetups/SavedEvents"}>
+              <NavLink to={"/Gather/MyEvents/SavedEvents"}>
                 <button>
                   Saved Events<div className="SavedEventsNumber">0</div>
                 </button>
@@ -134,12 +149,18 @@ export default function Sidebar() {
               </div>
               <div className="UserDetails">
                 <h4>{user?.displayName || "Guest"}</h4>
-                <h5>{user?.email || "user@example.com"}</h5>
+                <h5>{user?.email || "Not signed in"}</h5>
               </div>
             </div>
-            <NavLink to={"/Gather/SignUp"}>
-              <button className="ChangeUser">Sign Up</button>
-            </NavLink>
+            {user ? (
+              <button className="ChangeUser" onClick={handleSignOut}>
+                Sign Out
+              </button>
+            ) : (
+              <NavLink to={"/Gather/SignUp"}>
+                <button className="ChangeUser">Sign Up</button>
+              </NavLink>
+            )}
           </div>
         </div>
       </div>

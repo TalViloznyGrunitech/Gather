@@ -93,6 +93,14 @@
   filter: invert(100%);
 }
 
+.Options .Active .MyEventsNumber {
+  position: absolute;
+  right: 10px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
 .Active .Dropdown {
   left: 10px;
 }
@@ -209,6 +217,19 @@ button .Dropdown {
   height: 70%;
 }
 
+.MyEventsNumber {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #2563eb;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
 .ChangeUser {
   width: 100%;
   background-color: #4318d1;
@@ -241,13 +262,17 @@ button .Dropdown {
 
 @media screen and (max-width: 1600px) {
   .UserDetails h5 {
-    font-size: 13px;
+    font-size: 10px;
   }
 }
 
 @media screen and (max-width: 1300px) {
   .Sidebar {
     width: 20%;
+  }
+
+  .UserDetails h5 {
+    font-size: 11px;
   }
 }
 
@@ -259,7 +284,7 @@ button .Dropdown {
 
 @media screen and (max-width: 1150px) {
   .UserDetails h5 {
-    font-size: 10px;
+    font-size: 9px;
   }
 }
 

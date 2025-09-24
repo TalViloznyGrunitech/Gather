@@ -39,10 +39,9 @@ export default function SignUp() {
         password
       );
 
-       const user = userCredential.user;
-       await updateProfile(auth.currentUser, { displayName: username });
-       await auth.currentUser.reload();
-
+      const user = userCredential.user;
+      await updateProfile(auth.currentUser, { displayName: username });
+      await auth.currentUser.reload();
 
       navigate("/Gather/Discover");
     } catch (error) {
@@ -71,11 +70,11 @@ export default function SignUp() {
                 <h4>Username</h4>
                 <div className="Username">
                   <input
-                  type="text"
-                  placeholder="Enter your username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
+                    type="text"
+                    placeholder="Enter your username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
                   ></input>
                 </div>
                 <h4>Email Address</h4>

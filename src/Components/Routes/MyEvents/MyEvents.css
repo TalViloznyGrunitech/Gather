@@ -1,0 +1,20 @@
+.MyEventsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.EventsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 0 30px 0 30px;
+}
+
+.EventCard {
+  padding: 20px 10px 20px 10px;
+}
+
+.EventCard .Event {
+  height: 100%;
+}

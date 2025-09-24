@@ -1,0 +1,135 @@
+.SearchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  position: sticky;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.SearchBox {
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 60%;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  padding-left: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.SearchBox:focus-within {
+  border-color: #4318d1;
+  box-shadow: 0 12px 35px rgba(67, 24, 209, 0.2);
+  transform: translateY(-2px);
+}
+
+.SearchBox img {
+  width: 21px;
+  height: 20px;
+}
+
+.Line {
+  height: 1px;
+  background-color: hsl(0, 0%, 0%, 10%);
+  width: 100%;
+}
+
+
+.SearchBox input {
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 12px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  color: #1e293b;
+}
+
+.SearchBox input:focus {
+  outline: none;
+}
+
+.SearchBox input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.EventsFound {
+  font-weight: 600;
+  font-size: 14px;
+  color: #4318d1;
+  position: absolute;
+  right: 25px;
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Hidden {
+  display: none;
+}
+
+.MobileHeader {
+  width: 100%;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.LogoImage {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.MenuButton {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .SearchContainer {
+    width: 100%;
+    height: auto;
+    padding: 0px 20px 0 20px;
+    flex-direction: column;
+  }
+
+  .SearchBox {
+    width: 100%;
+    height: 50px;
+  }
+
+  .EventsFound {
+    display: none;
+  }
+
+  .SearchBox input::placeholder {
+    color: black;
+  }
+
+  .Hidden {
+    display: block;
+  }
+
+  .MobileHeader {
+    display: flex;
+  }
+
+  .Line {
+    margin-top: 20px;
+  }
+}

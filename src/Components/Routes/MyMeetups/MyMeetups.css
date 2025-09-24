@@ -1,0 +1,62 @@
+.events-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
+.event-card {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Override Event component styling for MyMeetups */
+.event-card .Event {
+  flex: none !important;
+  max-width: none !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+.event-card .EventTitle {
+  height: 200px !important;
+  font-size: 2.5rem !important;
+}
+
+/* Ensure proper spacing and alignment */
+.event-card .Event .Info {
+  padding: 15px 20px !important;
+}
+
+.event-card .Event .Information {
+  padding: 0 20px 15px 20px !important;
+}
+
+.event-card .Event .ButtonContainer {
+  padding: 0 20px 20px 20px !important;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .events-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .event-card .EventTitle {
+    height: 180px !important;
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .events-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .event-card .EventTitle {
+    height: 160px !important;
+    font-size: 1.8rem !important;
+  }
+}

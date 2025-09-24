@@ -1,0 +1,85 @@
+.HeaderOptions {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  margin-top: 30px;
+  gap: 40px;
+}
+
+.HeaderOptions button {
+  color: #6b7280;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.LineContainer {
+  margin-top: 20px;
+  padding: 0 40px 0 40px;
+}
+
+.MyConnections {
+  display: flex;
+  width: 100%;
+  padding: 40px;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.Connection {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  height: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 40%);
+  padding: 20px;
+}
+
+.HeaderOptions a {
+  text-decoration: none;
+}
+
+.HeaderOptions .Active {
+  color: #4318d1;
+}
+
+.UserBackground {
+  width: 60px;
+  height: 60px;
+  background-color: gray;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserBackground img {
+  width: 70%;
+  height: 70%;
+  filter: invert(100%);
+}
+
+.Purple {
+  background-color: #4318d1;
+}
+
+.Pink {
+  background-color: #7c3aed;
+}
+
+.Green {
+  background-color: #059669;
+}
+
+.Red {
+  background-color: #dc3545;
+}
+
+.Orange {
+  background-color: rgb(250, 154, 65);
+}
+
+.Yellow {
+  background-color: rgb(255, 233, 106);
+}

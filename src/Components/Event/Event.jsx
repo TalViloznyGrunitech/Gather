@@ -112,7 +112,7 @@ export default function Event({
       <div className="Information">
         <h1>{name}</h1>
         <h3>
-          <span>��</span>
+          <span>📆</span>
           {dateTimeLabel}
         </h3>
         <h3>
@@ -124,7 +124,22 @@ export default function Event({
           {`${preview}...`}
           {isLong && (
             <button
-              onClick={() => navigate(`/Gather/Discover/event/${id}`)}
+              onClick={() => navigate(`/Gather/EventProfile/${id}`, {
+                state: {
+                  eventData: {
+                    id,
+                    title,
+                    icon,
+                    category,
+                    views,
+                    name,
+                    dateTimeLabel,
+                    location,
+                    description,
+                    imageUrl
+                  }
+                }
+              })}
               style={{
                 marginLeft: 8,
                 background: "none",

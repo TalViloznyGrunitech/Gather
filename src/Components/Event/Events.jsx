@@ -1,5 +1,32 @@
 import React from "react";
 import Event from "./Event";
+// import { getFirestore, doc, setDoc, collection } from "firebase/firestore";
+// import { getAuth } from "firebase/auth";
+// import { db } from "../FireBase/FireBase";
+
+
+
+// async function joinEvent(eventId, eventData) {
+//   const user = auth.currentUser;
+//   if (!user) {
+//     console.log("User not logged in");
+//     return;
+//   }
+
+//   try {
+//     // Reference to the document for this joined event under the user
+//     const joinedEventRef = doc(db, "users", user.uid, "joinedEvents", eventId);
+
+//     // Save event data or just a flag
+//     await setDoc(joinedEventRef, eventData);
+
+//     console.log("Event joined successfully!");
+//   } catch (error) {
+//     console.error("Error joining event: ", error);
+//   }
+// }
+
+
 
 
 

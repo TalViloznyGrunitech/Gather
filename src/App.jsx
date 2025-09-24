@@ -18,6 +18,7 @@ import SignUp from "./Components/Routes/User/SignUp";
 import MyConnections from "./Components/Routes/MyNetwork/MyConnections";
 import ConnectionRequests from "./Components/Routes/MyNetwork/ConnectionRequests";
 import FindConnections from "./Components/Routes/MyNetwork/FindConnections";
+import EventProfile from "./Components/Routes/EventProfile/EventProfile";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             ></Route>
             <Route path="/Gather/SignUp" element={<SignUp />}></Route>
             <Route path="/Gather/LogIn" element={<LogIn />}></Route>
+            <Route path="/Gather/EventProfile/:eventId" element={<EventProfile />}></Route>
             <Route
               path="/Gather/MyNetwork/MyConnections"
               element={<MyConnections />}

@@ -5,14 +5,14 @@ import { events } from "../../Event/Events";
 import Event from "../../Event/Event";
 
 export default function Discover() {
-  const [selectedCategory, setSelectedCategory] = useState("Technology");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
 
   const categories = [
     { name: "All Categories", icon: "🌟", value: "all" },
-    { name: "Technology", icon: "��", value: "Technology" },
+    { name: "Technology", icon: "💻", value: "Technology" },
     { name: "Business", icon: "💼", value: "Business" },
     { name: "Photography", icon: "📸", value: "Photography" },
     { name: "Literature", icon: "📚", value: "Literature" },

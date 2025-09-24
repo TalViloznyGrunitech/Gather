@@ -9,16 +9,38 @@ export default function MyMeetups() {
   if (!user) {
     return (
       <div style={{ padding: '20px', textAlign: 'center' }}>
-        <h1>My Meetups</h1>
+        <h1>My Events</h1>
         <p>Please log in to view your joined events.</p>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>My Meetups</h1>
-      <h2>Joined Events ({joinedEvents.length})</h2>
+    <div style={{ 
+      padding: '30px', 
+      background: 'white',
+      minHeight: '100vh',
+      width: '100%'
+    }}>
+      <div style={{
+        width: '100%',
+        margin: '0'
+      }}>
+        <h1 style={{ 
+          fontSize: '2.5rem', 
+          fontWeight: '800', 
+          marginBottom: '10px',
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text'
+        }}>My Events</h1>
+        <h2 style={{ 
+          fontSize: '1.2rem', 
+          color: '#6b7280', 
+          marginBottom: '30px',
+          fontWeight: '500'
+        }}>Joined Events ({joinedEvents.length})</h2>
       
       {joinedEvents.length === 0 ? (
         <div style={{ 
@@ -57,6 +79,7 @@ export default function MyMeetups() {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 }

@@ -79,7 +79,7 @@ export default function Sidebar() {
               onClick={ShowDiv}
             >
               <img src={MeetupsIcon}></img>
-              <span>My Meetups</span>
+              <span>My Events</span>
               {user && joinedEvents.length > 0 && (
                 <div className="MyMeetupsNumber" key={joinedEvents.length}>
                   {joinedEvents.length}

@@ -1,11 +1,13 @@
 .Sidebar {
-  width: 15%;
-  height: 100%;
+  width: 250px;
+  height: 100vh;
   background-color: #ffffff;
   box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.3);
   padding: 35px 0 25px 0;
   z-index: 7;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .LogoImage {
@@ -316,7 +318,7 @@ button .Dropdown {
 
 @media screen and (max-width: 1000px) {
   .Sidebar {
-    width: 25%;
+    width: 200px;
   }
 
   .UserDetails h5 {

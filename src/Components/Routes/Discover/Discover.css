@@ -1,0 +1,538 @@
+.Main {
+  width: 85%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.Title,
+.SecondTitle {
+  margin-left: 40px;
+}
+
+.Title {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: #111827;
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(67, 24, 209, 0.1);
+}
+
+.SecondTitle {
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.Categories {
+  margin: 0px 40px 0px 40px;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.Categories button {
+  color: #374151;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 10px 15px 10px 15px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Categories button:hover {
+  cursor: pointer;
+  background-color: #f3f4f6;
+  transform: translateY(-2px);
+}
+
+.Categories span {
+  margin-right: 5px;
+}
+
+.Categories button:hover span {
+  transform: scale(1.1);
+}
+
+.Events {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0 20px 0;
+  padding: 20px 40px 10px 40px;
+  gap: 70px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+  flex-wrap: nowrap;
+}
+
+.Events::-webkit-scrollbar {
+  height: 8px;
+}
+
+.Events::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.Events::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.Events::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.Event {
+  background-color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 40%);
+  position: relative;
+  flex-shrink: 0;
+  width: 400px;
+}
+
+.Event:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(67, 24, 209, 0.2);
+}
+
+.EventTitle {
+  height: 250px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.Tech {
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 50%, #a855f7 100%);
+}
+
+.Photo {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+}
+
+.Sport {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+}
+
+.Business {
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%);
+}
+
+.Health {
+  background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+}
+
+.Music {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+}
+
+.Art {
+  background: linear-gradient(135deg, #db2777 0%, #f472b6 100%);
+}
+
+.Fun {
+  background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+}
+
+.NightLife {
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);
+}
+
+.Like {
+  background-color: white;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Like:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}
+
+.Like.red {
+  background: linear-gradient(135deg, #f87171 0%, #fee2e2 100%);
+  color: white;
+}
+
+
+.Info {
+  margin-top: 25px;
+  margin-left: 24px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.Category {
+  margin-left: 10px;
+  color: white;
+  font-size: 14px;
+  padding: 5px 14px 5px 14px;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.Category:hover {
+  transform: scale(1.05) translateY(-1px);
+}
+
+.TechnologyCategory {
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 50%, #a855f7 100%);
+}
+
+.SportsCategory {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+}
+
+.BusinessCategory {
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%);
+}
+
+.PhotographyCategory {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+}
+
+.HealthCategory {
+  background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+}
+
+.MusicCategory {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+}
+
+.ArtCategory {
+  background: linear-gradient(135deg, #db2777 0%, #f472b6 100%);
+}
+
+.FunCategory {
+  background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+}
+
+.NightLifeCategory {
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);
+}
+
+.Information {
+  margin: 20px 24px 120px 24px;
+}
+
+.Information h1 {
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.Information h3 {
+  margin-bottom: 15px;
+}
+
+.Information h3,
+h2 {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.Information h3 span {
+  margin-right: 10px;
+}
+
+.Views {
+  position: absolute;
+  right: 24px;
+  color: #6b7280;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.JoinEvent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4318d1;
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 14px;
+  color: white;
+  font-size: 20px;
+  height: 60px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.JoinEvent:hover {
+  background: linear-gradient(135deg, #3a16b8 0%, #6d28d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(67, 24, 209, 0.4);
+}
+
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 24px 24px 24px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.Categories .Active {
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 100%);
+  color: white;
+  font-weight: 500;
+  transform: translateY(-2px);
+}
+
+.Categories .Active:hover {
+  background-color: #4318d1;
+  background: linear-gradient(135deg, #3a16b8 0%, #6d28d9 100%);
+  transform: translateY(-3px);
+}
+
+.Categories button {
+  white-space: nowrap;
+}
+
+.FilterControls {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin: 20px 40px 10px 40px;
+  padding: 20px;
+}
+
+.FilterRow {
+  display: flex;
+  gap: 20px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.FilterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.FilterGroup label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.FilterInput,
+.FilterSelect {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.FilterInput:focus,
+.FilterSelect:focus {
+  outline: none;
+
+  box-shadow: 0 0 0 3px rgba(67, 24, 209, 0.1);
+}
+
+.ClearFilters {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.ClearFilters:hover {
+  background-color: #dc2626;
+}
+
+.NoEvent {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.NoEvent p {
+  font-size: 35px;
+}
+
+.NoEvent h2 {
+  font-size: 40px;
+  color: #4318d1;
+}
+
+.MobileEventsFound {
+  margin-left: 40px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.FoundEventsHidden {
+  display: none;
+}
+
+@media screen and (max-width: 1300px) {
+  .Main {
+    width: 80%;
+  }
+
+  .Categories {
+    width: 93%;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .EventTitle {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Main {
+    width: 75%;
+  }
+
+  .Events {
+    gap: 20px;
+  }
+
+  .EventsFound {
+    display: none;
+  }
+
+  .FoundEventsHidden {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Main {
+    width: 100%;
+  }
+
+  .Sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Main {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .Events {
+    flex-direction: column;
+    margin: 0 0 0 0;
+    gap: 0;
+    padding: 0 20px 0 20px;
+  }
+
+  .Event {
+    margin-bottom: 25px;
+    width: unset;
+  }
+
+  .EventTitle {
+    font-size: 3rem;
+  }
+
+  .MobileEventsFound {
+    margin-left: 20px;
+  }
+
+  .Categories {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    gap: 10px;
+    margin: 20px 0 30px 20px;
+    flex-wrap: nowrap;
+  }
+
+  .Categories button {
+    display: inline-flex;
+    padding: 10px 20px 10px 20px;
+    font-size: 14px;
+  }
+
+  .Title {
+    font-size: 25px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .SecondTitle {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .EventTitle {
+    height: 200px;
+  }
+
+  .Information h1 {
+    font-size: 20px;
+  }
+
+  .Information h3,
+  h4 {
+    font-size: 16px;
+  }
+
+  .Information h2 {
+    font-size: 16px;
+  }
+
+  .Categories .All {
+    white-space: nowrap;
+  }
+
+  .FilterControls {
+    margin: 20px 20px 10px 20px;
+  }
+
+  .ClearFilters {
+    width: 100%;
+  }
+}

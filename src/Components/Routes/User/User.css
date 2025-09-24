@@ -1,0 +1,162 @@
+.SignUpContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignUp {
+  display: flex;
+  background-color: white;
+  padding: 38px 32px 23px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 40%);
+  width: 400px;
+
+  flex-direction: column;
+}
+
+.SignUpTitle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.SiteIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.SignUpTitle h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.SignUpTitle h3 {
+  color: #6b7280;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.EmailAndPassword h4 {
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.EmailAndPassword {
+  width: 100%;
+}
+
+.Email,
+.Password,
+.Username {
+  border-radius: 8px;
+  background-color: #f9fafb;
+  height: 50px;
+  border: 2px solid #d1d5db;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.EmailAndPassword input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 90%;
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+.EmailAndPassword input::placeholder {
+  color: black;
+}
+
+.EmailAndPassword input:focus {
+  outline: none;
+}
+
+.EmailAndPassword button {
+  width: 10%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.MoreOptions {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.MoreOptions h4 {
+  color: #374151;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.Checkbox {
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #666666;
+  border-radius: 8px;
+}
+
+.ForgotPassword {
+  background-color: transparent;
+  border: none;
+  color: #4318d1;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  right: 0;
+  cursor: pointer;
+}
+
+.SignUpButton {
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  background-color: hsl(254, 79%, 46%, 60%);
+  color: white;
+  border-radius: 8px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.SignInOption {
+  justify-content: center;
+  color: #6b7280;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.SignInOption h5 {
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+.SignInText {
+  border: none;
+  background-color: transparent;
+  color: #4318d1;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}

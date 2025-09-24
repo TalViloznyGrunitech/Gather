@@ -1,0 +1,42 @@
+.CalendarContainer {
+  width: 100%;
+  height: 100%;
+  padding: 20px 40px 20px 40px;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  color: white;
+  background-color: #4318d1;
+  border-radius: 10px;
+  display: flex;
+  justify-content: right;
+  padding: 4px;
+  font-size: 19px;
+  height: 100%;
+}
+
+.fc-direction-ltr {
+  width: 100%;
+  height: 100%;
+}
+
+:root {
+  --fc-border-color: hsl(0, 0%, 0%, 30%);
+}
+
+.fc .fc-view-harness-active > .fc-view {
+  border-radius: 20px;
+  border: 2px solid #4318d1;
+}
+
+.fc .fc-toolbar-title {
+  color: #111827;
+}
+
+.fc-today-button fc-button fc-button-primary {
+  border-radius: 20px;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  overflow: hidden;
+}

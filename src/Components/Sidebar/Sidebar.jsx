@@ -15,15 +15,12 @@ import UserLogo from "./Icons/UserLogo.png";
 import { useLocation } from "react-router-dom";
 import { UserContext } from "../Routes/User/UserContext";
 
-
 export default function Sidebar() {
   const [ShowMeetups, SetShowMeetups] = useState(false);
 
   const Location = useLocation();
 
   const { user } = useContext(UserContext); 
- 
-
 
   function ShowDiv() {
     SetShowMeetups(!ShowMeetups);
@@ -113,10 +110,12 @@ export default function Sidebar() {
               <div className="MessagesNumber">0</div>
             </button>
           </NavLink>
-          <NavLink to={"/Gather/MyNetwork"}>
+          <NavLink to={"/Gather/MyNetwork/MyConnections"}>
             <button
               className={`MyNetwork${
-                Location.pathname === "/Gather/MyNetwork" ? " Active" : ""
+                Location.pathname === "/Gather/MyNetwork/MyConnections"
+                  ? " Active"
+                  : ""
               }`}
             >
               <img src={NetworkIcon}></img>My Network

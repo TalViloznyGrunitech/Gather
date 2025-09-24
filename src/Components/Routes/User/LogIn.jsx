@@ -1,5 +1,5 @@
 import SiteIcon from "./Icons/SiteIcon.svg";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../../FireBase/FireBase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -37,7 +37,7 @@ export default function LogIn() {
         password
       );
 
-      navigate("/Gather/Dashboard");
+      navigate("/Gather/Discover");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         setError("This email is already registered.");

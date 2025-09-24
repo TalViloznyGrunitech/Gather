@@ -1,6 +1,7 @@
 import React from "react";
 import Event from "./Event";
 
+
 export const events = [
   {
     id: "tech-1",
@@ -29,6 +30,7 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
+
   },
   {
     id: "tech-3",
@@ -43,6 +45,7 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
+
   },
   {
     id: "tech-4",
@@ -57,6 +60,7 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
+
   },
   {
     id: "tech-5",
@@ -71,6 +75,7 @@ export const events = [
       "Join us for an evening of networking with fellow tech professionals. Great opportunity to share ideas and make connections.",
     titleClassName: "Tech",
     categoryClassName: "TechnologyCategory",
+
   },
   {
     id: "photo-1",

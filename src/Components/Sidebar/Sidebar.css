@@ -208,8 +208,8 @@ button .Dropdown {
 }
 
 .UserImage img {
-  width: 28px;
-  height: 28px;
+  width: 70%;
+  height: 70%;
 }
 
 .ChangeUser {
@@ -242,6 +242,12 @@ button .Dropdown {
   font-weight: 500;
 }
 
+@media screen and (max-width: 1600px) {
+  .UserDetails h5 {
+    font-size: 13px;
+  }
+}
+
 @media screen and (max-width: 1300px) {
   .Sidebar {
     width: 20%;
@@ -263,6 +269,10 @@ button .Dropdown {
 @media screen and (max-width: 1000px) {
   .Sidebar {
     width: 25%;
+  }
+
+  .UserDetails h5 {
+    font-size: 11px;
   }
 }
 

@@ -13,7 +13,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 40%);
   width: 400px;
-  height: 544px;
+
   flex-direction: column;
 }
 
@@ -52,7 +52,8 @@
 }
 
 .Email,
-.Password {
+.Password,
+.Username {
   border-radius: 8px;
   background-color: #f9fafb;
   height: 50px;
@@ -153,9 +154,9 @@
   cursor: pointer;
 }
 
-
 .error {
   color: red;
-  margin-top: 10px;
-  text-align: center;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 }

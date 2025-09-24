@@ -1,5 +1,5 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
+import React, { useContext } from "react";
+import { useState, useEffect, useRef, createContext } from "react";
 import { NavLink } from "react-router";
 import "../../App.css";
 import "./Sidebar.css";
@@ -11,23 +11,16 @@ import CalendarIcon from "./Icons/Calendar.png";
 import MessagesIcon from "./Icons/Messages.png";
 import NetworkIcon from "./Icons/MyNetwork.png";
 import DropdownIcon from "./Icons/DropdownArrow.png";
-import UserLogo from "./Icons/UserLogo.png";
+import UserLogo from "./Icons/UserLogo.svg";
 import { useLocation } from "react-router";
+import { UserContext } from "../Routes/User/UserContext";
 
 export default function Sidebar() {
   const [ShowMeetups, SetShowMeetups] = useState(false);
 
   const Location = useLocation();
 
-  function MakeButtonActive() {
-    // This function is not needed for conditional rendering with useLocation.
-    // Instead, you can use the location to set the "Active" class directly in the button's className.
-    // Example:
-    // <button className={`Dashboard${Location.pathname === "/Gather/Dashboard" ? " Active" : ""}`}>
-    //   ...
-    // </button>
-    // Repeat for other buttons with their respective paths.
-  }
+  const { user } = useContext(UserContext);
 
   function ShowDiv() {
     SetShowMeetups(!ShowMeetups);
@@ -117,10 +110,12 @@ export default function Sidebar() {
               <div className="MessagesNumber">0</div>
             </button>
           </NavLink>
-          <NavLink to={"/Gather/MyNetwork"}>
+          <NavLink to={"/Gather/MyNetwork/MyConnections"}>
             <button
               className={`MyNetwork${
-                Location.pathname === "/Gather/MyNetwork" ? " Active" : ""
+                Location.pathname === "/Gather/MyNetwork/MyConnections"
+                  ? " Active"
+                  : ""
               }`}
             >
               <img src={NetworkIcon}></img>My Network
@@ -135,8 +130,8 @@ export default function Sidebar() {
                 <img src={UserLogo}></img>
               </div>
               <div className="UserDetails">
-                <h4>Username</h4>
-                <h5>Username@gmail.com</h5>
+                <h4>{user?.displayName || "Guest"}</h4>
+                <h5>{user?.email || "user@example.com"}</h5>
               </div>
             </div>
             <NavLink to={"/Gather/SignUp"}>

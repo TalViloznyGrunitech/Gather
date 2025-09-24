@@ -15,6 +15,9 @@ import SavedEvents from "./Components/Routes/MyMeetups/SavedEvents";
 import UpcomingEvents from "./Components/Routes/MyMeetups/UpcomingEvents";
 import LogIn from "./Components/Routes/User/LogIn";
 import SignUp from "./Components/Routes/User/SignUp";
+import MyConnections from "./Components/Routes/MyNetwork/MyConnections";
+import ConnectionRequests from "./Components/Routes/MyNetwork/ConnectionRequests";
+import FindConnections from "./Components/Routes/MyNetwork/FindConnections";
 
 function App() {
   return (
@@ -28,9 +31,24 @@ function App() {
             <Route path="/Gather/MyMeetups" element={<MyMeetups />}></Route>
             <Route path="/Gather/Calendar" element={<Calendar />}></Route>
             <Route path="/Gather/Messages" element={<Messages />}></Route>
-            <Route path="/Gather/MyNetwork" element={<MyNetwork />}></Route>
+            <Route
+              path="/Gather/MyNetwork/ConnectionRequests"
+              element={<ConnectionRequests />}
+            ></Route>
+            <Route
+              path="/Gather/MyNetwork/MyConnections"
+              element={<MyConnections />}
+            ></Route>
+            <Route
+              path="/Gather/MyNetwork/FindConnections"
+              element={<FindConnections />}
+            ></Route>
             <Route path="/Gather/SignUp" element={<SignUp />}></Route>
             <Route path="/Gather/LogIn" element={<LogIn />}></Route>
+            <Route
+              path="/Gather/MyNetwork/MyConnections"
+              element={<MyConnections />}
+            ></Route>
             <Route
               path="/Gather/MyMeetups/Hosting"
               element={<Hosting />}

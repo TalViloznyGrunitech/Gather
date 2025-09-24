@@ -81,12 +81,39 @@
   cursor: pointer;
 }
 
+.MenuButtonWeb {
+  position: absolute;
+  left: 40px;
+  display: flex;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.MenuHidden {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .MenuHidden {
+    display: block;
+  }
+
+  .MenuButton {
+    margin-left: 0px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .SearchContainer {
     width: 100%;
     height: auto;
     padding: 0px 20px 0 20px;
     flex-direction: column;
+  }
+
+  .MenuHidden {
+    display: none;
   }
 
   .SearchBox {

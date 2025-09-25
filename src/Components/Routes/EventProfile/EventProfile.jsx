@@ -64,6 +64,11 @@ export default function EventProfile() {
     whatToBring: "Just bring yourself and enthusiasm!",
   };
 
+  // Debug logging
+  console.log("EventProfile - eventData received:", eventData);
+  console.log("EventProfile - event.titleClassName:", event.titleClassName);
+  console.log("EventProfile - event.title:", event.title);
+
   const isEventJoined = joinedEvents.some(
     (joinedEvent) => joinedEvent.id === event.id
   );
@@ -143,6 +148,20 @@ export default function EventProfile() {
               )}
               {!event.titleClassName && (
                 <div className="event-overlay">
+                  <div style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    textAlign: "center",
+                    color: "white",
+                    fontSize: "2.5rem",
+                    fontWeight: "bold",
+                    textShadow: "0 2px 4px rgba(0,0,0,0.5)",
+                    zIndex: 2
+                  }}>
+                    {event.title}
+                  </div>
                   <div className="event-category">{event.category}</div>
                   <div className="event-views">👁️ {event.views} views</div>
                 </div>

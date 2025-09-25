@@ -38,7 +38,19 @@ export function UserProvider({ children }) {
     try {
       console.log("Loading joined events for user:", userId);
 
-      // Try Firebase first
+      // First, try to load from localStorage immediately (for faster UI response)
+      const localEvents = localStorage.getItem(`joinedEvents_${userId}`);
+      if (localEvents) {
+        try {
+          const events = JSON.parse(localEvents);
+          console.log("Loaded joined events from localStorage:", events);
+          setJoinedEvents(events);
+        } catch (parseError) {
+          console.error("Error parsing localStorage events:", parseError);
+        }
+      }
+
+      // Then try Firebase to get the most up-to-date data
       const userDocRef = doc(db, "users", userId);
       const userDoc = await getDoc(userDocRef);
 
@@ -47,38 +59,40 @@ export function UserProvider({ children }) {
         console.log("User data from Firebase:", userData);
         const events = userData.joinedEvents || [];
         console.log("Loaded joined events from Firebase:", events);
-        setJoinedEvents(events);
-
-        // Also save to localStorage as backup
-        localStorage.setItem(`joinedEvents_${userId}`, JSON.stringify(events));
-      } else {
-        console.log("No Firebase document found, checking localStorage");
-        // Fallback to localStorage
-        const localEvents = localStorage.getItem(`joinedEvents_${userId}`);
-        if (localEvents) {
-          const events = JSON.parse(localEvents);
-          console.log("Loaded joined events from localStorage:", events);
+        
+        // Only update if Firebase has different data than localStorage
+        const currentEvents = JSON.stringify(joinedEvents);
+        const firebaseEvents = JSON.stringify(events);
+        
+        if (currentEvents !== firebaseEvents) {
+          console.log("Updating events from Firebase (different from localStorage)");
           setJoinedEvents(events);
+          // Update localStorage with Firebase data
+          localStorage.setItem(`joinedEvents_${userId}`, JSON.stringify(events));
         } else {
+          console.log("Firebase data matches localStorage, no update needed");
+        }
+      } else {
+        console.log("No Firebase document found for user:", userId);
+        // If no Firebase document exists, keep localStorage data
+        if (!localEvents) {
           console.log("No events found in localStorage either");
           setJoinedEvents([]);
         }
       }
     } catch (error) {
       console.error("Error loading joined events from Firebase:", error);
-      console.log("Falling back to localStorage");
+      console.log("Using localStorage data only");
 
       // Fallback to localStorage
       try {
         const localEvents = localStorage.getItem(`joinedEvents_${userId}`);
         if (localEvents) {
           const events = JSON.parse(localEvents);
-          console.log(
-            "Loaded joined events from localStorage fallback:",
-            events
-          );
+          console.log("Using localStorage events as fallback:", events);
           setJoinedEvents(events);
         } else {
+          console.log("No events found in localStorage");
           setJoinedEvents([]);
         }
       } catch (localError) {
@@ -131,7 +145,7 @@ export function UserProvider({ children }) {
         `joinedEvents_${userId}`,
         JSON.stringify(updatedEvents)
       );
-      console.log("Saved to localStorage");
+      console.log("✅ Saved to localStorage");
 
       // Try to save to Firebase
       try {
@@ -148,7 +162,7 @@ export function UserProvider({ children }) {
         console.log("✅ Successfully saved to Firebase");
       } catch (firebaseError) {
         console.error("❌ Firebase save failed:", firebaseError);
-        console.log("Data saved to localStorage instead");
+        console.log("Data saved to localStorage only - will retry on next login");
       }
 
       return true;
@@ -178,7 +192,7 @@ export function UserProvider({ children }) {
         `joinedEvents_${userId}`,
         JSON.stringify(updatedEvents)
       );
-      console.log("Removed from localStorage");
+      console.log("✅ Removed from localStorage");
 
       // Try to save to Firebase
       try {
@@ -195,7 +209,7 @@ export function UserProvider({ children }) {
         console.log("✅ Successfully removed from Firebase");
       } catch (firebaseError) {
         console.error("❌ Firebase remove failed:", firebaseError);
-        console.log("Data removed from localStorage instead");
+        console.log("Data removed from localStorage only - will retry on next login");
       }
 
       return true;

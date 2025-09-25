@@ -1,6 +1,6 @@
 import "./User.css";
 import SiteIcon from "./Icons/SiteIcon.svg";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../../FireBase/FireBase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";

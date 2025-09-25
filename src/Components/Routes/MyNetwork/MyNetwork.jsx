@@ -1,8 +1,8 @@
 import Search from "../../Search/Search";
 import MyConnections from "./MyConnections";
 import "./MyNetwork.css";
-import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { NavLink } from "react-router";
+import { useLocation } from "react-router";
 
 export default function MyNetwork() {
   const Location = useLocation();

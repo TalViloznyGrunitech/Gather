@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Error from "./Components/Routes/Error/Error";
 import Discover from "./Components/Routes/Discover/Discover";

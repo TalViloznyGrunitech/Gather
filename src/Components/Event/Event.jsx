@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { UserContext } from "../Routes/User/UserContext";
 
 export default function Event({
@@ -50,8 +50,6 @@ export default function Event({
       dateTimeLabel,
       location,
       description,
-      titleClassName,
-      categoryClassName,
     };
     if (isEventJoined) {
       await leaveEvent(id);
@@ -77,8 +75,6 @@ export default function Event({
       dateTimeLabel,
       location,
       description,
-      titleClassName,
-      categoryClassName,
     };
     if (isEventSaved) {
       await removeSavedEvent(id);
@@ -103,7 +99,7 @@ export default function Event({
           disabled={isSaving}
           title={isEventSaved ? "Remove from saved" : "Save event"}
         >
-          <span>
+          <span style={{ color: isEventSaved ? "red" : "white" }}>
             {isEventSaved ? "❤️" : "🤍"}
           </span>
         </button>
@@ -148,8 +144,6 @@ export default function Event({
                       dateTimeLabel,
                       location,
                       description,
-                      titleClassName,
-                      categoryClassName,
                     },
                   },
                 })

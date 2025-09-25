@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router";
 import { UserContext } from "../User/UserContext";
 import "./EventProfile.css";
 import "../Discover/Discover.css";

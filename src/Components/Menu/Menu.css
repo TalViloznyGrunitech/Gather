@@ -1,0 +1,66 @@
+.MenuContainer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  z-index: 50;
+}
+
+.Menu {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.LogoContainer {
+  background-color: #fafbfc;
+  align-items: center;
+  padding: 0 25px 0 25px;
+  display: flex;
+  width: 100%;
+  height: 80px;
+  position: relative;
+}
+
+.LogoContainer h1 {
+  margin-left: 12px;
+  font-size: 25px;
+}
+
+.LogoContainer img {
+  width: 35px;
+  height: 35px;
+}
+
+.LogoContainer button {
+  position: absolute;
+  right: 25px;
+}
+
+.LogoContainer .CloseMenu {
+  width: 20px;
+  height: 20px;
+}
+
+.MenuLine {
+  height: 1px;
+  background-color: hsl(0, 0%, 0%, 10%);
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.LogoContainer button {
+  background-color: transparent;
+  border: none;
+}
+
+.HideMenu {
+  display: none;
+}
+
+.MenuCategory {
+  color: #6b7280;
+  margin-left: 25px;
+  font-weight: 600;
+  font-size: 14px;
+}

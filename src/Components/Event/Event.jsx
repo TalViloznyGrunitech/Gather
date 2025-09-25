@@ -18,30 +18,28 @@ export default function Event({
 }) {
   const [expanded, setExpanded] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const navigate = useNavigate();
-  const { user, joinedEvents, joinEvent, leaveEvent } = useContext(UserContext);
 
-  const words = (description || "").split(" ");
-  const limit = 4;
-  const isLong = words.length > limit;
-  const preview = words.slice(0, limit).join(" ");
-
-  const handleCategoryClick = () => {
-    if (onCategoryClick) {
-      onCategoryClick(category);
-    }
-  };
+  const {
+    user,
+    joinedEvents,
+    joinEvent,
+    leaveEvent,
+    savedEvents,
+    saveEvent,
+    removeSavedEvent,
+  } = useContext(UserContext);
 
   const isEventJoined = joinedEvents.some((event) => event.id === id);
+  const isEventSaved = savedEvents.some((event) => event.id === id);
 
   const handleJoinEvent = async () => {
     if (!user) {
       navigate("/Gather/LogIn");
       return;
     }
-
     setIsJoining(true);
-
     const eventData = {
       id,
       title,
@@ -54,37 +52,74 @@ export default function Event({
       description,
       titleClassName,
       categoryClassName,
-      joinedAt: new Date().toISOString(),
     };
-
     if (isEventJoined) {
       await leaveEvent(id);
     } else {
       await joinEvent(eventData);
     }
-
     setIsJoining(false);
+  };
+
+  const handleSaveClick = async () => {
+    if (!user) {
+      navigate("/Gather/LogIn");
+      return;
+    }
+    setIsSaving(true);
+    const eventData = {
+      id,
+      title,
+      icon,
+      category,
+      views,
+      name,
+      dateTimeLabel,
+      location,
+      description,
+      titleClassName,
+      categoryClassName,
+    };
+    if (isEventSaved) {
+      await removeSavedEvent(id);
+    } else {
+      await saveEvent(eventData);
+    }
+    setIsSaving(false);
   };
 
   return (
     <div className="Event">
-      <div className={`EventTitle ${titleClassName}`}>
+      <div
+        className={`EventTitle ${titleClassName}`}
+        style={{ position: "relative" }}
+      >
         <div />
         <div style={{ position: "relative", zIndex: 1 }}>{title}</div>
-        <button className="Like" style={{ position: "absolute", zIndex: 1 }}>
-          🤍
+
+        <button
+          className={`Like ${isEventSaved ? "red" : ""}`}
+          onClick={handleSaveClick}
+          disabled={isSaving}
+          title={isEventSaved ? "Remove from saved" : "Save event"}
+        >
+          <span>
+            {isEventSaved ? "❤️" : "🤍"}
+          </span>
         </button>
       </div>
+
       <div className="Info">
         {icon}
         <div
           className={`Category ${categoryClassName}`}
-          onClick={handleCategoryClick}
+          onClick={() => onCategoryClick && onCategoryClick(category)}
         >
           {category}
         </div>
         <div className="Views">👥 {views}</div>
       </div>
+
       <div className="Information">
         <h1>{name}</h1>
         <h3>
@@ -97,8 +132,8 @@ export default function Event({
         </h3>
         <br />
         <h2 style={{ lineHeight: 1.4 }}>
-          {`${preview}...`}
-          {isLong && (
+          {(description || "").split(" ").slice(0, 4).join(" ")}...
+          {(description || "").split(" ").length > 4 && (
             <button
               onClick={() =>
                 navigate(`/Gather/EventProfile/${id}`, {
@@ -134,6 +169,7 @@ export default function Event({
           )}
         </h2>
       </div>
+
       <div className="ButtonContainer">
         <button
           className="JoinEvent"

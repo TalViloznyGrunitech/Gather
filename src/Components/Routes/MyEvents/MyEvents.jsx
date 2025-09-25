@@ -7,11 +7,39 @@ import "./MyEvents.css";
 export default function MyEvents() {
   const { user, joinedEvents } = useContext(UserContext);
 
+  // Helper function to generate titleClassName from category
+  const getTitleClassName = (category, existingClassName) => {
+    if (existingClassName) return existingClassName;
+    
+    const categoryMap = {
+      Technology: "Tech",
+      Photography: "Photo",
+      Sports: "Sport",
+      Business: "Business",
+      Health: "Health",
+      Music: "Music",
+      Art: "Art",
+      Fun: "Fun",
+      "Night Life": "NightLife",
+    };
+    return categoryMap[category] || "Tech";
+  };
+
+  // Helper function to generate categoryClassName from category
+  const getCategoryClassName = (category, existingClassName) => {
+    if (existingClassName) return existingClassName;
+    return `${category.replace(/\s+/g, "")}Category`;
+  };
+
   if (!user) {
     return (
-      <div>
-        <h1>My Events</h1>
-        <p>Please log in to view your joined events.</p>
+      <div className="Main">
+        <div className="NotLoggedInError">
+          <h1>No Events</h1>
+          <p>
+            <span>⛔</span>Error: Please log in to view your joined events.
+          </p>
+        </div>
       </div>
     );
   }
@@ -22,8 +50,8 @@ export default function MyEvents() {
         <h1 className="Title">My Events</h1>
         <h2 className="SecondTitle">Joined Events: {joinedEvents.length}</h2>
         {joinedEvents.length === 0 ? (
-          <div>
-            <p>You haven't joined any events yet.</p>
+          <div className="NoEventsError">
+            <h2>You haven't joined any events yet.</h2>
             <p>
               Browse events in the Discover section and join events that
               interest you!
@@ -44,8 +72,8 @@ export default function MyEvents() {
                   location={event.location}
                   description={event.description}
                   imageUrl={event.imageUrl}
-                  titleClassName={event.titleClassName}
-                  categoryClassName={event.categoryClassName}
+                  titleClassName={getTitleClassName(event.category, event.titleClassName)}
+                  categoryClassName={getCategoryClassName(event.category, event.categoryClassName)}
                 />
               </div>
             ))}

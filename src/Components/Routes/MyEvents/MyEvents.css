@@ -18,3 +18,182 @@
 .EventCard .Event {
   height: 100%;
 }
+
+.HostingContainer {
+  padding: 20px 40px 20px 40px;
+  width: 100%;
+}
+
+.Hosting {
+  padding: 20px 30px 20px 30px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.HostingCategories {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  gap: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.HostingCategory {
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 25px 20px 25px 20px;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: 80px;
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.HostingCategory span {
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.HostingTitle {
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  padding-left: 15px;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.HostingDescription {
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  padding-left: 15px;
+  padding-top: 15px;
+  font-size: 15px;
+  margin-top: 10px;
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+.DateAndLocation {
+  display: flex;
+  width: 100%;
+  gap: 50px;
+}
+
+.Date {
+  width: 50%;
+}
+
+.Location {
+  width: 50%;
+}
+
+.HostingLocation {
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  width: 100%;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  height: 60px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.HostingDate {
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  width: 100%;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  height: 60px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.CreateEvent {
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 100%);
+  color: white;
+  width: 100%;
+  margin-top: 40px;
+  height: 60px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.HostingActive {
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 100%);
+  color: white;
+  font-weight: 500;
+  transform: translateY(-2px);
+  font-weight: bold;
+}
+
+.NoEventsError {
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.NoEventsError h2 {
+  font-size: 30px;
+  color: #4318d1;
+}
+
+.NoEventsError p {
+  font-size: 25px;
+}
+
+.NotLoggedInError {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #4318d1;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+}
+
+.NoSavedEvents {
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.NoSavedEvents h2 {
+  font-size: 30px;
+  color: #4318d1;
+}
+
+.NoSavedEventsError {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #4318d1;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+}
+

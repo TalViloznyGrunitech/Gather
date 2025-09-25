@@ -4,7 +4,6 @@ import { NavLink, useNavigate } from "react-router";
 import "../../App.css";
 import "./Sidebar.css";
 import SiteLogo from "./Icons/SiteIcon.svg";
-import DashboardIcon from "./Icons/Dashboard.png";
 import SearchIcon from "./Icons/Discover.png";
 import MeetupsIcon from "./Icons/MyMeetups.png";
 import CalendarIcon from "./Icons/Calendar.png";
@@ -50,15 +49,6 @@ export default function Sidebar() {
         </div>
         <div className="Line"></div>
         <div className="Options">
-          <NavLink to={"/Gather/Dashboard"}>
-            <button
-              className={`Dashboard${
-                Location.pathname === "/Gather/Dashboard" ? " Active" : ""
-              }`}
-            >
-              <img src={DashboardIcon}></img>Dashboard
-            </button>
-          </NavLink>
           <NavLink to={"/Gather/Discover"}>
             <button
               className={`Discover${
@@ -87,21 +77,10 @@ export default function Sidebar() {
           </NavLink>
           {ShowMeetups && (
             <div className="SubMenu">
-              <NavLink to={"/Gather/MyEvents/UpcomingEvents"}>
-                <button>
-                  Upcoming Events<div className="UpcomingNumber">0</div>
-                </button>
-              </NavLink>
               <NavLink to={"/Gather/MyEvents/Hosting"}>
-                <button>
-                  Hosting<div className="HostingNumber">0</div>
-                </button>
+                <button>Hosting</button>
               </NavLink>
-              <NavLink to={"/Gather/MyEvents/PastEvents"}>
-                <button>
-                  Past Events<div className="PastEventsNumber">0</div>
-                </button>
-              </NavLink>
+
               <NavLink to={"/Gather/MyEvents/SavedEvents"}>
                 <button>
                   Saved Events<div className="SavedEventsNumber">0</div>

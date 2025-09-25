@@ -16,15 +16,18 @@ export const UserContext = createContext();
 export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
   const [joinedEvents, setJoinedEvents] = useState([]);
+  const [savedEvents, setSavedEvents] = useState([]);
 
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
         setUser(firebaseUser);
         loadJoinedEvents(firebaseUser.uid);
+        loadSavedEvents(firebaseUser.uid);
       } else {
         setUser(null);
         setJoinedEvents([]);
+        setSavedEvents([]);
       }
     });
 
@@ -82,6 +85,26 @@ export function UserProvider({ children }) {
         console.error("Error loading from localStorage:", localError);
         setJoinedEvents([]);
       }
+    }
+  };
+
+  const loadSavedEvents = async (userId) => {
+    try {
+      console.log("Loading saved events for user:", userId);
+      
+      // Load from localStorage
+      const localSavedEvents = localStorage.getItem(`savedEvents_${userId}`);
+      if (localSavedEvents) {
+        const events = JSON.parse(localSavedEvents);
+        console.log("Loaded saved events from localStorage:", events);
+        setSavedEvents(events);
+      } else {
+        console.log("No saved events found");
+        setSavedEvents([]);
+      }
+    } catch (error) {
+      console.error("Error loading saved events:", error);
+      setSavedEvents([]);
     }
   };
 
@@ -182,13 +205,120 @@ export function UserProvider({ children }) {
     }
   };
 
+  const createEvent = async (eventData) => {
+    if (!user) return false;
+
+    try {
+      const userId = user.uid;
+
+      console.log("Creating and joining event:", eventData);
+
+      // Automatically join the event you created
+      const eventWithCreatedFlag = {
+        ...eventData,
+        isCreator: true,
+        joinedAt: new Date().toISOString(),
+      };
+
+      // Add to joined events immediately
+      const updatedEvents = [...joinedEvents, eventWithCreatedFlag];
+      setJoinedEvents(updatedEvents);
+
+      // Save to localStorage immediately
+      localStorage.setItem(
+        `joinedEvents_${userId}`,
+        JSON.stringify(updatedEvents)
+      );
+      console.log("✅ Added created event to joined events (localStorage)");
+
+      // Try to save to Firebase
+      try {
+        const userDocRef = doc(db, "users", userId);
+        await setDoc(
+          userDocRef,
+          {
+            joinedEvents: updatedEvents,
+            userId: userId,
+            lastUpdated: new Date().toISOString(),
+          },
+          { merge: true }
+        );
+        console.log("✅ Successfully saved created event to Firebase");
+      } catch (firebaseError) {
+        console.error("❌ Firebase save failed:", firebaseError);
+        console.log("Created event saved to localStorage instead");
+      }
+
+      return true;
+    } catch (error) {
+      console.error("Error creating event:", error);
+      return false;
+    }
+  };
+
+  const saveEvent = async (eventData) => {
+    if (!user) return false;
+
+    try {
+      const userId = user.uid;
+
+      // Check if event is already saved
+      if (savedEvents.some((event) => event.id === eventData.id)) {
+        console.log("Event already saved:", eventData.id);
+        return false;
+      }
+
+      const updatedSavedEvents = [...savedEvents, eventData];
+      setSavedEvents(updatedSavedEvents);
+
+      // Save to localStorage
+      localStorage.setItem(
+        `savedEvents_${userId}`,
+        JSON.stringify(updatedSavedEvents)
+      );
+      
+      return true;
+    } catch (error) {
+      console.error("Error saving event:", error);
+      return false;
+    }
+  };
+
+  const removeSavedEvent = async (eventId) => {
+    if (!user) return false;
+
+    try {
+      const userId = user.uid;
+      
+      const updatedSavedEvents = savedEvents.filter(
+        (event) => event.id !== eventId
+      );
+      setSavedEvents(updatedSavedEvents);
+
+      // Save to localStorage
+      localStorage.setItem(
+        `savedEvents_${userId}`,
+        JSON.stringify(updatedSavedEvents)
+      );
+      
+      return true;
+    } catch (error) {
+      console.error("Error removing saved event:", error);
+      return false;
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
         user,
         joinedEvents,
+        savedEvents,
         joinEvent,
         leaveEvent,
+        createEvent,
+        saveEvent,
+        removeSavedEvent,
       }}
     >
       {children}

@@ -2,11 +2,14 @@
   width: 100%;
   height: 100%;
   padding: 20px 40px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .fc .fc-daygrid-day.fc-day-today {
   color: white;
-  background-color: #4318d1;
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 100%);
   border-radius: 10px;
   display: flex;
   justify-content: right;
@@ -30,7 +33,11 @@
 }
 
 .fc .fc-toolbar-title {
-  color: #111827;
+  background: linear-gradient(135deg, #4318d1 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(67, 24, 209, 0.1);
 }
 
 .fc-today-button fc-button fc-button-primary {
@@ -39,4 +46,134 @@
 
 .fc .fc-toolbar.fc-header-toolbar {
   overflow: hidden;
+}
+
+.fc .fc-event {
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fc .fc-event:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.fc .fc-daygrid-day.fc-day-today:hover {
+  background: linear-gradient(135deg, #3a16b8 0%, #6d28d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(67, 24, 209, 0.4);
+}
+
+/* Event title styling */
+.fc .fc-event-title {
+  font-weight: 600;
+  padding: 2px 4px;
+}
+
+/* Button styling */
+.fc .fc-button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.fc .fc-button:hover {
+  transform: translateY(-1px);
+}
+
+.fc .fc-button-primary {
+  background-color: #4318d1;
+  border-color: #4318d1;
+}
+
+.fc .fc-button-primary:hover {
+  background-color: #5b2dd1;
+  border-color: #5b2dd1;
+}
+
+/* Day grid styling */
+.fc .fc-daygrid-day-number {
+  font-weight: 500;
+  padding: 8px;
+}
+
+.fc .fc-daygrid-day:hover {
+  background-color: rgba(44, 11, 151, 0.05);
+}
+
+/* More events link */
+.fc .fc-more-link {
+  color: #4318d1;
+  font-weight: 500;
+}
+
+.fc .fc-more-link:hover {
+  color: #5b2dd1;
+}
+
+/* FullCalendar custom styles */
+.fc {
+  font-family: "Inter", sans-serif;
+}
+
+.fc-toolbar-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.fc-button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.fc-button:hover {
+  transform: translateY(-1px);
+}
+
+.fc-button-primary {
+  background-color: #4318d1;
+  border-color: #4318d1;
+}
+
+.fc-button-primary:hover {
+  background-color: #5b2dd1;
+  border-color: #5b2dd1;
+}
+
+.CalendarContainer {
+  color: #4318d1;
+  font-size: 21px;
+}
+
+.CalendarWrapper {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.fc {
+  height: 100% !important;
+}
+
+.fc .fc-view-harness {
+  height: 100% !important;
+}
+
+.CalendarHeader {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #4318d1;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
 }

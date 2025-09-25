@@ -83,6 +83,8 @@ export default function EventProfile() {
       dateTimeLabel: event.dateTimeLabel,
       location: event.location,
       description: event.description,
+      titleClassName: event.titleClassName,
+      categoryClassName: event.categoryClassName,
       imageUrl: event.imageUrl,
       joinedAt: new Date().toISOString(),
     };

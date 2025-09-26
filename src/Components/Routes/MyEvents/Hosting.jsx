@@ -2,9 +2,12 @@ import { useState, useContext } from "react";
 import { events } from "../../Event/Events";
 import { UserContext } from "../User/UserContext";
 import Search from "../../Search/Search";
+import Event from "../../Event/Event";
+import "../Discover/Discover.css";
+import "./MyEvents.css";
 
 export default function Hosting() {
-  const { user, createEvent } = useContext(UserContext);
+  const { user, createEvent, joinedEvents } = useContext(UserContext);
   const [selectedCategory, setSelectedCategory] = useState("Technology");
   const [eventTitle, setEventTitle] = useState("");
   const [eventDescription, setEventDescription] = useState("");

@@ -3,12 +3,47 @@ import { useNavigate, useParams, useLocation } from "react-router";
 import { UserContext } from "../User/UserContext";
 import "./EventProfile.css";
 import "../Discover/Discover.css";
+import ReturnArrow from "./Icons/ReturnArrow.png";
+import OrganizerIcon from "./Icons/Organizer.png";
 
 export default function EventProfile() {
   const navigate = useNavigate();
   const { eventId } = useParams();
   const location = useLocation();
   const { user, joinedEvents, joinEvent, leaveEvent } = useContext(UserContext);
+
+  // Function to get category-specific gradient
+  const getCategoryGradient = (category, titleClassName) => {
+    // If we have titleClassName, use it to determine the gradient
+    if (titleClassName) {
+      const gradientMap = {
+        Tech: "linear-gradient(135deg, #4318d1 0%, #7c3aed 50%, #a855f7 100%)",
+        Photo: "linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%)",
+        Sport: "linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%)",
+        Business: "linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%)",
+        Health: "linear-gradient(135deg, #16a34a 0%, #22c55e 100%)",
+        Music: "linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%)",
+        Art: "linear-gradient(135deg, #db2777 0%, #f472b6 100%)",
+        Fun: "linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)",
+        NightLife: "linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%)",
+      };
+      return gradientMap[titleClassName];
+    }
+    
+    // Fallback: map by category name
+    const categoryGradientMap = {
+      Technology: "linear-gradient(135deg, #4318d1 0%, #7c3aed 50%, #a855f7 100%)",
+      Photography: "linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%)",
+      Sports: "linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%)",
+      Business: "linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%)",
+      Health: "linear-gradient(135deg, #16a34a 0%, #22c55e 100%)",
+      Music: "linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%)",
+      Art: "linear-gradient(135deg, #db2777 0%, #f472b6 100%)",
+      Fun: "linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)",
+      "Night Life": "linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%)",
+    };
+    return categoryGradientMap[category] || "linear-gradient(135deg, #4318d1 0%, #7c3aed 100%)"; // default
+  };
 
   // Get event data from navigation state
   const eventData = location.state?.eventData;
@@ -25,25 +60,12 @@ export default function EventProfile() {
             <h1 className="event-title">Event Not Found</h1>
           </div>
           <div className="event-content">
-            <div style={{ padding: "40px", textAlign: "center" }}>
+            <div>
               <p>
                 Sorry, we couldn't find the event details. Please go back and
                 try again.
               </p>
-              <button
-                onClick={() => navigate(-1)}
-                style={{
-                  padding: "12px 24px",
-                  backgroundColor: "#4318d1",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "8px",
-                  cursor: "pointer",
-                  marginTop: "20px",
-                }}
-              >
-                Go Back
-              </button>
+              <button onClick={() => navigate(-1)}>Go Back</button>
             </div>
           </div>
         </div>
@@ -106,124 +128,110 @@ export default function EventProfile() {
   };
 
   return (
-    <div className="event-profile">
-      <div className="event-profile-container">
-        {/* Header with back button */}
-        <div className="event-header">
-          <button className="back-button" onClick={handleBackClick}>
-            ← Back
-          </button>
-          <h1 className="event-title">{event.title}</h1>
-        </div>
-
-        {/* Main content */}
-        <div className="event-content">
-          {/* Event image */}
-          <div className="event-image-section">
-            <div
-              className="event-image"
-              style={{
-                background: event.titleClassName
-                  ? undefined
-                  : "linear-gradient(135deg, #4318d1 0%, #7c3aed 100%)",
-              }}
-            >
-              {/* Use same gradient class used on cards when available */}
+    <div className="Main">
+      <div className="EventHeader">
+        <button className="BackButton" onClick={handleBackClick}>
+          <img src={ReturnArrow}></img> Back to Events
+        </button>
+      </div>
+      <div className="Line"></div>
+      <div className="EventsInfoContainer">
+        <div className="EventMoreInfo">
+          <div 
+            className="EventProfileImage"
+            style={{
+              background: getCategoryGradient(event.category, event.titleClassName),
+            }}
+          >
+            <div className="EventProfileTitle">
               {event.titleClassName && (
-                <div
-                  className={`EventTitle ${event.titleClassName}`}
-                  style={{ height: "100%", borderRadius: 0 }}
-                >
+                <div className={`EventTitle ${event.titleClassName}`}>
                   <div />
-                  <div style={{ position: "relative", zIndex: 1 }}>
-                    {event.title}
-                  </div>
-                  <button
-                    className="Like"
-                    style={{ position: "absolute", zIndex: 1, display: "none" }}
-                  >
-                    🤍
-                  </button>
+                  <div>{event.title}</div>
+                  <button className="Like">🤍</button>
                 </div>
               )}
               {!event.titleClassName && (
                 <div className="event-overlay">
-                  <div style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    textAlign: "center",
-                    color: "white",
-                    fontSize: "2.5rem",
-                    fontWeight: "bold",
-                    textShadow: "0 2px 4px rgba(0,0,0,0.5)",
-                    zIndex: 2
-                  }}>
-                    {event.title}
-                  </div>
-                  <div className="event-category">{event.category}</div>
-                  <div className="event-views">👁️ {event.views} views</div>
+                  <div>{event.title}</div>
                 </div>
               )}
             </div>
           </div>
-
-          {/* Event details */}
-          <div className="event-details">
-            <div className="event-info">
-              <div className="event-organizer">
-                <h3>📆 {event.dateTimeLabel}</h3>
-                <h3>📍 {event.location}</h3>
-                <h3>👤 Organized by {event.organizer}</h3>
-                <h3>
-                  👥 {event.attendees}/{event.maxAttendees} attendees
-                </h3>
-              </div>
-
-              <div className="event-description">
-                <h2>About this event</h2>
-                <p>{event.description}</p>
-              </div>
-
-              <div className="event-tags">
-                <h3>Tags</h3>
-                <div className="tags-container">
-                  {event.tags.map((tag, index) => (
-                    <span key={index} className="tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="event-requirements">
-                <h3>Requirements</h3>
-                <p>{event.requirements}</p>
-              </div>
-
-              <div className="event-bring">
-                <h3>What to bring</h3>
-                <p>{event.whatToBring}</p>
-              </div>
+          <div className="EventProfileHeader">
+            <div 
+              className="EventCategory"
+              style={{
+                background: getCategoryGradient(event.category, event.titleClassName),
+              }}
+            >
+              {event.category}
             </div>
-
-            <div className="event-actions">
-              <div className="join-section">
-                <button
-                  className={`join-button ${isEventJoined ? "joined" : "join"}`}
-                  onClick={handleJoinEvent}
-                >
-                  {isEventJoined ? "🗑️ Remove Event" : "🔐 Join Event"}
-                </button>
-                <div className="attendee-count">
-                  {event.attendees} of {event.maxAttendees} spots filled
+          </div>
+          <div className="ProfileTitle">
+            {event.titleClassName && (
+              <div className={`EventTitle ${event.titleClassName}`}>
+                <div />
+                <div>{event.title}</div>
+                <button className="Like">🤍</button>
+              </div>
+            )}
+            {!event.titleClassName && (
+              <div className="event-overlay">
+                <div>{event.title}</div>
+              </div>
+            )}
+          </div>
+          <div className="AboutEvent">
+            <h2>About This Event</h2>
+            <div className="EventDescription">{event.description}</div>
+            <h2 className="ToBringTitle">What to Bring</h2>
+            <div className="ToBringDescription">{event.whatToBring}</div>
+            <h2 className="RequirementsTitle">Requirements</h2>
+            <div className="RequirementsDescription">{event.requirements}</div>
+          </div>
+          <div className="JoinEventContainer">
+            <button
+              className={`JoinEvent ${isEventJoined ? "joined" : "join"}`}
+              onClick={handleJoinEvent}
+            >
+              {isEventJoined ? "🗑️ Remove Event" : "🔐 Join Event"}
+            </button>
+          </div>
+        </div>
+        <div className="MoreDetailsContainer">
+          <div className="EventMoreDetails">
+            <h3>Event Details</h3>
+            <div className="EventDetails">
+              <h3>
+                <span>📆</span> {event.dateTimeLabel}
+              </h3>
+              <h3>
+                <span>📍</span> {event.location}
+              </h3>
+              <div className="EventAttendees">
+                <span>👥</span>
+                <div className="AttendeesInfo">
+                  <h4 className="Attending">{event.attendees} attending</h4>
+                  <h4>{event.maxAttendees} spots available</h4>
                 </div>
               </div>
-
-              <div className="contact-section">
-                <h3>Questions?</h3>
-                <p>Contact the organizer: {event.organizerEmail}</p>
+              <h3>
+                <span>👁️</span> {event.views} views
+              </h3>
+            </div>
+          </div>
+          <div className="OrganizerDetails">
+            <h3>Organizer</h3>
+            <div className="Organizer">
+              <div className="OrganizerLogo">
+                <div className="OrganizerImage">
+                  <img src={OrganizerIcon}></img>
+                </div>
+                <div className="NameAndContact">
+                  <h3>{event.organizer}</h3>
+                  <h3 className="Contact">{event.organizerEmail}</h3>
+                </div>
               </div>
             </div>
           </div>

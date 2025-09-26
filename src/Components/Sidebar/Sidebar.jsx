@@ -22,7 +22,7 @@ export default function Sidebar() {
   const Location = useLocation();
   const navigate = useNavigate();
 
-  const { user, joinedEvents } = useContext(UserContext);
+  const { user, joinedEvents, savedEvents } = useContext(UserContext);
 
   function ShowDiv() {
     SetShowMeetups(!ShowMeetups);
@@ -83,7 +83,8 @@ export default function Sidebar() {
 
               <NavLink to={"/Gather/MyEvents/SavedEvents"}>
                 <button>
-                  Saved Events<div className="SavedEventsNumber">0</div>
+                  Saved Events
+                  <div className="SavedEventsNumber">{savedEvents.length}</div>
                 </button>
               </NavLink>
             </div>

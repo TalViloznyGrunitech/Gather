@@ -148,19 +148,8 @@ button .Dropdown {
   right: 50px;
 }
 
-.UpcomingNumber {
-  background-color: #4318d1;
-}
-
-.HostingNumber {
-  background-color: #28a745;
-}
-.PastEventsNumber {
-  background-color: #dc3545;
-}
-
 .SavedEventsNumber {
-  background-color: #6c757d;
+  background-color: #28a745;
 }
 
 .MessagesNumber {

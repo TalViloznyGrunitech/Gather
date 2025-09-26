@@ -30,6 +30,33 @@ export default function Hosting() {
     setSelectedCategory(categoryValue);
   };
 
+  // Get events created by the user
+  const createdEvents = joinedEvents.filter(event => event.isCreator);
+
+  // Helper function to generate titleClassName from category
+  const getTitleClassName = (category, existingClassName) => {
+    if (existingClassName) return existingClassName;
+
+    const categoryMap = {
+      Technology: "Tech",
+      Photography: "Photo",
+      Sports: "Sport",
+      Business: "Business",
+      Health: "Health",
+      Music: "Music",
+      Art: "Art",
+      Fun: "Fun",
+      "Night Life": "NightLife",
+    };
+    return categoryMap[category] || "Tech";
+  };
+
+  // Helper function to generate categoryClassName from category
+  const getCategoryClassName = (category, existingClassName) => {
+    if (existingClassName) return existingClassName;
+    return `${category.replace(/\s+/g, "")}Category`;
+  };
+
   const isFormValid = () => {
     return (
       selectedCategory &&
@@ -163,6 +190,47 @@ export default function Hosting() {
             </button>
           </div>
         </div>
+
+        {/* Created Events Section */}
+        {user && (
+          <div className="MyEventsContainer">
+            <h1 className="Title">Your Created Events</h1>
+            <h2 className="SecondTitle">Events Created: {createdEvents.length}</h2>
+            {createdEvents.length === 0 ? (
+              <div className="NoCreatedEvents">
+                <h2>You haven't created any events yet.</h2>
+                <p>Use the form above to create your first event!</p>
+              </div>
+            ) : (
+              <div className="EventsContainer">
+                {createdEvents.map((event) => (
+                  <div key={event.id} className="EventCard">
+                    <Event
+                      id={event.id}
+                      title={event.title}
+                      icon={event.icon}
+                      category={event.category}
+                      views={event.views}
+                      name={event.name}
+                      dateTimeLabel={event.dateTimeLabel}
+                      location={event.location}
+                      description={event.description}
+                      imageUrl={event.imageUrl}
+                      titleClassName={getTitleClassName(
+                        event.category,
+                        event.titleClassName
+                      )}
+                      categoryClassName={getCategoryClassName(
+                        event.category,
+                        event.categoryClassName
+                      )}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </>
   );

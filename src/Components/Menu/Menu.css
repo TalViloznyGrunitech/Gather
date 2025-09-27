@@ -24,7 +24,7 @@
 
 .LogoContainer h1 {
   margin-left: 12px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .LogoContainer img {
@@ -63,4 +63,165 @@
   margin-left: 25px;
   font-weight: 600;
   font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.MenuOptions {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  gap: 20px;
+  position: relative;
+}
+
+.MenuOptions img {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.MenuOptions button {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+}
+
+.LinkContainer {
+  display: flex;
+  align-items: center;
+}
+
+.SecondMenuLine {
+  height: 1px;
+  background-color: hsl(0, 0%, 0%, 10%);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.MenuOptions a {
+  text-decoration: none;
+}
+
+.LinkContainer h4 {
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.MenuBadge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  right: 40px;
+  background-color: red;
+}
+
+.MenuBadge.SavedEventsNumber {
+  background-color: #28a745;
+}
+
+.MenuBadge.MyEventsNumber {
+  background-color: #2563eb;
+}
+
+.MenuBadge.MessagesNumber {
+  background-color: #dc3545;
+}
+
+.MenuUser {
+  width: 100%;
+  padding: 0 0 20px 0;
+  background-color: #fafbfc;
+  position: absolute;
+  bottom: 0;
+}
+
+.UserInfoContainer {
+  padding: 0 20px 0 20px;
+}
+
+.UserInfo {
+  background-color: white;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  width: 100%;
+  padding: 15px 15px 15px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.UserImage {
+  margin-right: 10px;
+}
+
+.UserInfo h4 {
+  color: #111827;
+  font-size: 17px;
+}
+
+.UserInfo p {
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.UserInfo .UserImage {
+  width: 45px;
+  height: 45px;
+}
+
+.MenuButtonContainer {
+  width: 100%;
+  padding: 20px 20px 0 20px;
+}
+
+.MenuButtonContainer button {
+  width: 100%;
+  height: 45px;
+  border-radius: 12px;
+
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.MenuButtonContainer .MenuSignOut {
+  background-color: #4318d1;
+}
+
+.MenuButtonContainer .MenuSignUp {
+  background-color: #dc3545;
+}
+
+.MenuSignOut img {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.MenuSignUp img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.MenuSignOut,
+.MenuSignUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MenuButtonContainer a {
+  text-decoration: none;
 }

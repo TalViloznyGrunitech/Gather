@@ -5,6 +5,9 @@ import Search from "../../Search/Search";
 import Event from "../../Event/Event";
 import "../Discover/Discover.css";
 import "./MyEvents.css";
+import Menu from "../../Menu/Menu";
+import HamburgerMenuIcon from "./Icons/HamburgerMenu.png";
+import SiteIcon from "./Icons/SiteIcon.png";
 
 export default function Hosting() {
   const { user, createEvent, joinedEvents } = useContext(UserContext);
@@ -13,6 +16,7 @@ export default function Hosting() {
   const [eventDescription, setEventDescription] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventLocation, setEventLocation] = useState("");
+  const [MenuOpen, SetMenuOpen] = useState(false);
 
   const categories = [
     { name: "Technology", icon: "💻", value: "Technology" },
@@ -31,7 +35,7 @@ export default function Hosting() {
   };
 
   // Get events created by the user
-  const createdEvents = joinedEvents.filter(event => event.isCreator);
+  const createdEvents = joinedEvents.filter((event) => event.isCreator);
 
   // Helper function to generate titleClassName from category
   const getTitleClassName = (category, existingClassName) => {
@@ -120,9 +124,27 @@ export default function Hosting() {
     }
   };
 
+  function ShowMenu() {
+    SetMenuOpen(!MenuOpen);
+  }
+
+  function CloseMenu() {
+    SetMenuOpen(false);
+  }
+
   return (
     <>
+      {MenuOpen && <Menu onClose={CloseMenu} />}
       <div className="Main">
+        <div className="HostingHeader">
+          <button className="MenuButton" onClick={ShowMenu}>
+            <img src={HamburgerMenuIcon}></img>
+          </button>
+          <img className="LogoImage" src={SiteIcon}></img>
+          <h3>Gather</h3>
+        </div>
+        <div className="MobileMenuLine"></div>
+
         <h1 className="Title">Host an Event</h1>
         <h2 className="SecondTitle">
           Create and share your event with the community
@@ -194,41 +216,32 @@ export default function Hosting() {
         {/* Created Events Section */}
         {user && (
           <div className="MyEventsContainer">
-            <h1 className="Title">Your Created Events</h1>
-            <h2 className="SecondTitle">Events Created: {createdEvents.length}</h2>
-            {createdEvents.length === 0 ? (
-              <div className="NoCreatedEvents">
-                <h2>You haven't created any events yet.</h2>
-                <p>Use the form above to create your first event!</p>
-              </div>
-            ) : (
-              <div className="EventsContainer">
-                {createdEvents.map((event) => (
-                  <div key={event.id} className="EventCard">
-                    <Event
-                      id={event.id}
-                      title={event.title}
-                      icon={event.icon}
-                      category={event.category}
-                      views={event.views}
-                      name={event.name}
-                      dateTimeLabel={event.dateTimeLabel}
-                      location={event.location}
-                      description={event.description}
-                      imageUrl={event.imageUrl}
-                      titleClassName={getTitleClassName(
-                        event.category,
-                        event.titleClassName
-                      )}
-                      categoryClassName={getCategoryClassName(
-                        event.category,
-                        event.categoryClassName
-                      )}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
+            <div className="EventsContainer">
+              {createdEvents.map((event) => (
+                <div key={event.id} className="EventCard">
+                  <Event
+                    id={event.id}
+                    title={event.title}
+                    icon={event.icon}
+                    category={event.category}
+                    views={event.views}
+                    name={event.name}
+                    dateTimeLabel={event.dateTimeLabel}
+                    location={event.location}
+                    description={event.description}
+                    imageUrl={event.imageUrl}
+                    titleClassName={getTitleClassName(
+                      event.category,
+                      event.titleClassName
+                    )}
+                    categoryClassName={getCategoryClassName(
+                      event.category,
+                      event.categoryClassName
+                    )}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>

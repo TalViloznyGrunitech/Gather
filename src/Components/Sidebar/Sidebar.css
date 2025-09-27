@@ -59,6 +59,7 @@
   color: #495057;
   font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .Options button img {
@@ -132,9 +133,7 @@ button .Dropdown {
   position: relative;
 }
 
-.UpcomingNumber,
 .HostingNumber,
-.PastEventsNumber,
 .SavedEventsNumber {
   display: flex;
   justify-content: center;

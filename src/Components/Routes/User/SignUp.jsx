@@ -4,6 +4,9 @@ import { NavLink, useNavigate } from "react-router";
 import { useState } from "react";
 import { auth } from "../../FireBase/FireBase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import Menu from "../../Menu/Menu";
+import HamburgerMenuIcon from "./Icons/HamburgerMenu.png";
+import SiteIconMobile from "./Icons/SiteIcon.png";
 
 export default function SignUp() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -22,6 +25,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState(null);
+  const [MenuOpen, SetMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -55,9 +59,26 @@ export default function SignUp() {
     }
   };
 
+  function ShowMenu() {
+    SetMenuOpen(!MenuOpen);
+  }
+
+  function CloseMenu() {
+    SetMenuOpen(false);
+  }
+
   return (
     <>
+      {MenuOpen && <Menu onClose={CloseMenu} />}
       <div className="Main">
+        <div className="HostingHeader">
+          <button className="MenuButton" onClick={ShowMenu}>
+            <img src={HamburgerMenuIcon}></img>
+          </button>
+          <img className="LogoImage" src={SiteIconMobile}></img>
+          <h3>Gather</h3>
+        </div>
+        <div className="MobileMenuLine"></div>
         <div className="SignUpContainer">
           <div className="SignUp">
             <div className="SignUpTitle">

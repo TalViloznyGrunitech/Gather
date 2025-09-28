@@ -33,7 +33,109 @@
   width: 100%;
   height: 250px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 40%);
-  padding: 20px;
+  padding: 30px;
+  display: flex;
+  position: relative;
+}
+
+.ConnectionInfo {
+  margin-top: 10px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  height: fit-content;
+}
+
+.ConnectionLine {
+  width: 100%;
+  background-color: red;
+  height: 1px;
+}
+
+.ConnectionInfo .Job {
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.ConnectionInfo .Company {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.MessageButton {
+  font-weight: 600;
+  width: 100px;
+  height: 37px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.ButtonOptions {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  right: 30px;
+}
+
+.RemoveButton {
+  font-weight: 600;
+  width: 100px;
+  height: 37px;
+  border: none;
+  background-color: #dc3545;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+}
+
+.AddButton {
+  background-color: #4318d1;
+  font-weight: 600;
+  width: 100px;
+  height: 37px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+}
+
+.BottomInfo {
+  position: absolute;
+  bottom: 30px;
+}
+
+.MutualAndAttended {
+  display: flex;
+  gap: 20px;
+  color: #6b7280;
+}
+
+.ViewProfile {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #4318d1;
+  font-weight: bold;
+}
+
+.MutualAndAttended h4 {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.ConnectionInfo h2 {
+  font-weight: bold;
+  color: #111827;
+  font-size: 19px;
 }
 
 .HeaderOptions a {
@@ -82,4 +184,46 @@
 
 .Yellow {
   background-color: rgb(255, 233, 106);
+}
+
+@media screen and (max-width: 600px) {
+  .MutualAndAttended {
+    flex-direction: column;
+  }
+
+  .SecondTitle {
+    margin-right: 20px;
+  }
+
+  .ButtonOptions {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .MyConnections {
+    padding: 20px;
+  }
+
+  .LineContainer {
+    padding: 0 20px 0 20px;
+  }
+
+  .HeaderOptions {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .Connection {
+    height: 230px;
+  }
+
+  .HeaderOptions button {
+    font-size: 14px;
+  }
+
+  .UserBackground {
+    width: 50px;
+    height: 50px;
+  }
 }

@@ -1,13 +1,17 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { UserContext } from "../User/UserContext";
 import { useNavigate } from "react-router";
 import "./Calendar.css";
+import Menu from "../../Menu/Menu";
+import HamburgerMenuIcon from "./Icons/HamburgerMenu.png";
+import SiteIcon from "./Icons/SiteIcon.png";
 
 export default function Calendar() {
   const { user, joinedEvents } = useContext(UserContext);
+  const [MenuOpen, SetMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const getCategoryColor = (category) => {
@@ -161,9 +165,26 @@ export default function Calendar() {
     );
   }
 
+  function ShowMenu() {
+    SetMenuOpen(!MenuOpen);
+  }
+
+  function CloseMenu() {
+    SetMenuOpen(false);
+  }
+
   return (
     <>
+      {MenuOpen && <Menu onClose={CloseMenu} />}
       <div className="Main">
+        <div className="HostingHeader">
+          <button className="MenuButton" onClick={ShowMenu}>
+            <img src={HamburgerMenuIcon}></img>
+          </button>
+          <img className="LogoImage" src={SiteIcon}></img>
+          <h3>Gather</h3>
+        </div>
+        <div className="MobileMenuLine"></div>
         <div className="CalendarContainer">
           <div className="CalendarWrapper">
             <FullCalendar

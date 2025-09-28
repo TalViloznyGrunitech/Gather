@@ -274,3 +274,28 @@
     font-size: 18px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .MyEventsContainer .Title {
+    margin-top: 0;
+  }
+  .EventsContainer {
+    margin: 0;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .EventCard {
+    padding: 20px;
+  }
+
+  .EventCard .Event {
+    margin-bottom: 0;
+    height: 570px;
+  }
+
+  .EventCard .Event .Information {
+    margin: 20px 24px 20px 24px;
+  }
+}

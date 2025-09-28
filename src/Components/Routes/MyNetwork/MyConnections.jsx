@@ -24,16 +24,76 @@ export default function MyConnections() {
             <div className={`UserBackground ${RandomColor()}`}>
               <img src={UserLogo}></img>
             </div>
+            <div className="ConnectionInfo">
+              <h2>Name</h2>
+              <h3 className="Job">Job</h3>
+              <h3 className="Company">Company</h3>
+            </div>
+            <div className="ButtonOptions">
+              <button className="MessageButton">Message</button>
+              <button className="RemoveButton">Remove</button>
+            </div>
+            <div className="BottomInfo">
+              <div className="MutualAndAttended">
+                <h4>
+                  <span>👥</span> 23 mutual connections
+                </h4>
+                <h4>
+                  <span>🎯</span> 5 events attended
+                </h4>
+              </div>
+            </div>
+            <button className="ViewProfile">View Profile</button>
           </div>
           <div className="Connection">
             <div className={`UserBackground ${RandomColor()}`}>
               <img src={UserLogo}></img>
             </div>
+            <div className="ConnectionInfo">
+              <h2>Name</h2>
+              <h3 className="Job">Job</h3>
+              <h3 className="Company">Company</h3>
+            </div>
+            <div className="ButtonOptions">
+              <button className="MessageButton">Message</button>
+              <button className="RemoveButton">Remove</button>
+            </div>
+            <div className="BottomInfo">
+              <div className="MutualAndAttended">
+                <h4>
+                  <span>👥</span> 23 mutual connections
+                </h4>
+                <h4>
+                  <span>🎯</span> 5 events attended
+                </h4>
+              </div>
+            </div>
+            <button className="ViewProfile">View Profile</button>
           </div>
           <div className="Connection">
             <div className={`UserBackground ${RandomColor()}`}>
               <img src={UserLogo}></img>
             </div>
+            <div className="ConnectionInfo">
+              <h2>Name</h2>
+              <h3 className="Job">Job</h3>
+              <h3 className="Company">Company</h3>
+            </div>
+            <div className="ButtonOptions">
+              <button className="MessageButton">Message</button>
+              <button className="RemoveButton">Remove</button>
+            </div>
+            <div className="BottomInfo">
+              <div className="MutualAndAttended">
+                <h4>
+                  <span>👥</span> 23 mutual connections
+                </h4>
+                <h4>
+                  <span>🎯</span> 5 events attended
+                </h4>
+              </div>
+            </div>
+            <button className="ViewProfile">View Profile</button>
           </div>
         </div>
       </div>

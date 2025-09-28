@@ -477,6 +477,10 @@ h2 {
     padding-bottom: 20px;
   }
 
+  .FilterGroup {
+    width: 100%;
+  }
+
   .Like {
     font-size: 18px;
     right: 10px;

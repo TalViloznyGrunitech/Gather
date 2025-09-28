@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../User/UserContext";
 import Event from "../../Event/Event";
 import "../Discover/Discover.css";
 import "./MyEvents.css";
+import HamburgerMenuIcon from "./Icons/HamburgerMenu.png";
+import SiteIcon from "./Icons/SiteIcon.png";
+import Menu from "../../Menu/Menu";
 
 export default function MyEvents() {
   const { user, joinedEvents } = useContext(UserContext);
+  const [MenuOpen, SetMenuOpen] = useState(false);
 
   // Helper function to generate titleClassName from category
   const getTitleClassName = (category, existingClassName) => {
@@ -44,9 +48,26 @@ export default function MyEvents() {
     );
   }
 
+  function ShowMenu() {
+    SetMenuOpen(!MenuOpen);
+  }
+
+  function CloseMenu() {
+    SetMenuOpen(false);
+  }
+
   return (
     <>
+      {MenuOpen && <Menu onClose={CloseMenu} />}
       <div className="Main">
+        <div className="HostingHeader">
+          <button className="MenuButton" onClick={ShowMenu}>
+            <img src={HamburgerMenuIcon}></img>
+          </button>
+          <img className="LogoImage" src={SiteIcon}></img>
+          <h3>Gather</h3>
+        </div>
+        <div className="MobileMenuLine"></div>
         <div className="MyEventsContainer">
           <h1 className="Title">My Events</h1>
           <h2 className="SecondTitle">Joined Events: {joinedEvents.length}</h2>
